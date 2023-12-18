@@ -42,7 +42,7 @@ const Home: NextPage = () => {
                   <GithubIcon
                     className="ml-2 inline-block cursor-pointer"
                     onClick={() => {
-                      window.open(url, '_blank')
+                      window.open(github, '_blank')
                     }}
                   />
                 ) : null}
