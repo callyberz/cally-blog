@@ -5,27 +5,28 @@ import { cx } from 'class-variance-authority'
 import { Badge } from '@/components/ui/badge'
 import { TypographyH1 } from '@/components/common/TypographyH1'
 import { TypographyP } from '@/components/common/TypographyP'
+import { TypographyH3 } from '@/components/common/TypographyH3'
 
 const Skills = () => {
   return (
-    <Card className={cx('w-full flex-1 bg-neutral-900')}>
+    <Card className={cx('w-full flex-1')}>
       <CardHeader>
-        <TypographyH1>Skills</TypographyH1>
-        <TypographyP>My programming skills...</TypographyP>
+        <TypographyH1>Tech Stack</TypographyH1>
       </CardHeader>
       {skills.map((skill, index) => {
         return (
           <CardContent key={index}>
-            <TypographyP>{skill.type}</TypographyP>
+            <TypographyH3>{skill.type}</TypographyH3>
             {skill.items.map((value, key) => (
-              <Badge
-                variant="outline"
-                key={key}
-                className="mr-2 dark:text-slate-400"
-              >
+              <Badge variant="outline" key={key} className="mr-2">
                 {value}
               </Badge>
             ))}
+            <ul className="ml-4 list-disc [&>li]:mt-2">
+              {skill.highlights.map((value, key) => (
+                <li key={key}>{value}</li>
+              ))}
+            </ul>
           </CardContent>
         )
       })}

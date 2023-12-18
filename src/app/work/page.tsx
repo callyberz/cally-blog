@@ -11,21 +11,21 @@ import { TypographyP } from '@/components/common/TypographyP'
 
 const WorkExperience = () => {
   return (
-    <Card className={cx('w-full flex-1 bg-neutral-900')}>
+    <Card className={cx('w-full flex-1')}>
       <CardHeader>
         <TypographyH1>Working Experience</TypographyH1>
-        <TypographyP>My previous corporates...</TypographyP>
       </CardHeader>
+
       {experiences.map((item, index) => {
         return (
           <CardContent key={index}>
             <ToggleContent title={item.company}>
-              <div className="dark:text-slate-400">
-                <div className="text-xl text-slate-100">
+              <div className="">
+                <div className="text-xl">
                   <TypographyP>{item.title}</TypographyP>
                 </div>
 
-                <div className="text-sm text-slate-100">
+                <div className="text-sm">
                   <p>
                     {CommonUtil.getDisplayDateRange(
                       item.dateStart,

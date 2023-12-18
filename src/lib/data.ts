@@ -38,7 +38,7 @@ export const education: EducationExperience[] = [
     school: 'University of Cincinnati',
     location: 'Cincinnati, OH, United States',
     programme:
-      'Exchange Student studying at Department of Electrical Engineering and Computer Science',
+      'Exchange Student at Department of Electrical Engineering and Computer Science',
     dateStart: 'Jan 2017',
     dateEnd: 'May 2017',
   },
@@ -112,12 +112,17 @@ export const skills: Skills[] = [
       'React',
       'Javascript',
       'Typescript',
+      'CSS/Less',
+      'TailwindCSS',
       'Mobx',
+      'Redux',
       'React Native',
       'Jest',
     ],
     highlights: [
-      'Develop Server Side Rendering',
+      'Migrate from Javascript to Typescript',
+      'Server Side Rendering (SSR)',
+      'Web vital/SEO optimization',
       'Maintain cocorporate npm packages',
     ],
   },
@@ -125,8 +130,8 @@ export const skills: Skills[] = [
     type: 'Backend',
     items: ['NodeJS', 'ExpressJS', 'GraphQL', 'MongoDB'],
     highlights: [
-      'Design and build RESTful & GraphQL API using Nodejs framework',
-      'Perform testing using Selenium for automation',
+      // 'Design and build RESTful & GraphQL API using Nodejs framework',
+      // 'Perform testing using Selenium for automation',
     ],
   },
   {
@@ -177,9 +182,15 @@ export const todoList: TodoList[] = [
 
 export const projects = [
   {
+    name: 'Breathing Exercise Web App',
+    description: 'A web app that helps you to relax and breathe.',
+    url: '',
+    github: 'https://github.com/callyberz/mindful',
+  },
+  {
     name: 'YouTube Playback Speed Controller WIP',
     description: 'A Chrome extension that tracks your YouTube playback speed.',
-    url: 'https://github.com/callyberz/speed-checker',
+    github: 'https://github.com/callyberz/speed-checker',
   },
   {
     name: 'NFT minting website',

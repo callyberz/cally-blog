@@ -11,7 +11,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import { GithubIcon } from 'lucide-react'
+import { GithubIcon, Link } from 'lucide-react'
 import { PostCard } from '@/components/PostCard'
 import { allPosts } from 'contentlayer/generated'
 import { compareDesc } from 'date-fns'
@@ -25,12 +25,20 @@ const Home: NextPage = () => {
     <div>
       <TypographyH1>Projects</TypographyH1>
       <div className="grid gap-4 py-4 md:grid-cols-2">
-        {projects.map(({ name, description, url }, index) => (
+        {projects.map(({ name, description, url, github }, index) => (
           <Card key={index}>
             <CardHeader>
               <CardTitle>
                 {name}
                 {url ? (
+                  <Link
+                    className="ml-2 inline-block cursor-pointer"
+                    onClick={() => {
+                      window.open(url, '_blank')
+                    }}
+                  />
+                ) : null}
+                {github ? (
                   <GithubIcon
                     className="ml-2 inline-block cursor-pointer"
                     onClick={() => {

@@ -8,15 +8,15 @@ import Link from 'next/link'
 import './global.css'
 
 const meta = {
-  title: 'Callyberz - Website',
-  description: 'Long live the web! I build things. Keep learning and grow.',
+  title: 'callyberz - Blog',
+  description: 'I am a front-end developer and ship products.',
   image: `${WEBSITE_HOST_URL}/og-preview.jpg`,
 }
 
 export const metadata: Metadata = {
   title: {
     default: meta.title,
-    template: '%s | Callyberz',
+    template: '%s | callyberz',
   },
   description: meta.description,
   openGraph: {
