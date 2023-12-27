@@ -1,0 +1,69 @@
+---
+title: Advent of TypeScript (1st-12th/25)
+description: TypeScript revision and practice
+date: 2023-12-26
+---
+
+<div>
+Highly appreciate the hardwork done by <a href="https://typehero.dev/aot-2023" target="__blank">TypeHero Team</a>. 
+I will highlight the techniques that I have learned/revised so far.
+</div>
+
+<h2>Manipulate object types</h2>
+<div>Rewrite the type of an object taking generic `<T>` where `K` in `keyof T` can be overwritten with `ANY_TYPE_YOU_WANT_TO_OVERWRITE`</div>
+```tsx
+type OverwriteKey<T, K extends keyof T, NewType> = {
+  [P in keyof T]: P extends K ? NewType : T[P];
+};
+
+// Usage:
+type OriginalType = {
+  name: string;
+  age: number;
+  isValid: boolean;
+};
+
+type NewType = OverwriteKey<OriginalType, 'age', string>;
+// Result: NewType will have the 'age' property's type overwritten to string.
+```
+
+<h2>Conditional Type</h2>
+<div>A genral use case of using conditional type to filter values</div>
+```tsx
+type FilterChildrenBy<T, U> = T extends U ? never : T;
+
+// Test case:
+type test_0_actual = FilterChildrenBy<'nice' | 'nice' | 'nice', 'naughty'>;
+// test_0_actual resolves to 'nice' since it filters out 'nice' values that match 'naughty'
+```
+
+<h2>Template Literal String Types</h2>
+<div>For checking if a string starts or ends with another string. This type `StartsWith` checks whether a string `T` starts with another string `U`. If it does, it returns true; otherwise, it returns false.</div>
+<p>2 ways to iterate the characters: </p>
+<ol>
+<li>`${U}${string | 'any_value'}` enfroces the constraint that `T` must start with `U` followed by any string or a specific string.</li>
+<li>Similarly, `${U}${infer _}` does the same thing but `infer _` means that the string after `U` is not important. Putting it together as a placeholder that allows TypeScript to infer the type without explicitly using it</li>
+</ol>
+```tsx
+type StartsWith<T extends string, U extends string> = T extends `${U}${infer _}`
+  ? true
+  : false;
+
+type DoesStartWith = StartsWith<'typescript', 'type'>;
+// Result: DoesStartWith is true
+
+type EndsWith<T extends string, U extends string> = T extends `${infer _}${U}`
+  ? true
+  : false;
+```
+
+<h2>Reversing a String</h2>
+<div>Recusive to iterate the string.</div>
+```tsx
+type ReverseString<T extends string> = T extends `${infer First}${infer Rest}`
+  ? `${ReverseString<Rest>}${First}`
+  : '';
+
+type Reversed = ReverseString<'typescript'>;
+// Reversed: 'tpircsepyt'
+```
