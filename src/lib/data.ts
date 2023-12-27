@@ -159,6 +159,8 @@ export const spokenLanguages =
 
 export const social = [
   { website: 'LinkedIn', url: 'https://www.linkedin.com/in/calvinlee26/' },
+  { website: 'X', url: 'https://twitter.com/cally_dev/' },
+  { website: 'GitHub', url: 'https://github.com/callyberz/' },
 ]
 
 export const todoList: TodoList[] = [

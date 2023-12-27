@@ -6,6 +6,8 @@ import { WEBSITE_HOST_URL } from '@/lib/constants'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import './global.css'
+import { social } from '@/lib/data'
+import { Separator } from '@radix-ui/react-separator'
 
 const meta = {
   title: 'callyberz - Blog',
@@ -67,9 +69,19 @@ export default function RootLayout({
             <Container>
               <p>
                 Check me out on{' '}
-                <Link className="link" href="https://twitter.com/cally_dev">
-                  X
-                </Link>
+                {social.map(({ website, url }, key) => {
+                  return (
+                    <Link
+                      className="link"
+                      href={url}
+                      key={key}
+                      target="__blank"
+                    >
+                      {website}
+                      {key < social.length - 1 ? ' | ' : null}
+                    </Link>
+                  )
+                })}
               </p>
             </Container>
           </footer>
