@@ -5,6 +5,7 @@ import ThemeSwitch from '@/components/ThemeSwitch'
 import { WEBSITE_HOST_URL } from '@/lib/constants'
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import PlausibleProvider from 'next-plausible'
 import './global.css'
 import { social } from '@/lib/data'
 
@@ -51,6 +52,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <PlausibleProvider domain="callyberz.com" />
+      </head>
       <body>
         <ThemeProvider attribute="class" defaultTheme="dark">
           <header className="py-4">
