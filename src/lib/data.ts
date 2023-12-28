@@ -185,24 +185,24 @@ export const todoList: TodoList[] = [
 export const projects = [
   {
     name: 'Breathing Exercise Web App',
-    description: 'A web app that helps you to relax and breathe.',
+    description: 'Provide breathing techniques for stress relief.',
     url: '',
     github: 'https://github.com/callyberz/mindful',
   },
   {
-    name: 'YouTube Playback Speed Controller WIP',
+    name: 'YouTube Playback Speed Tracker',
     description: 'A Chrome extension that tracks your YouTube playback speed.',
     github: 'https://github.com/callyberz/speed-checker',
-  },
-  {
-    name: 'NFT minting website',
-    description:
-      'Launched multiple of websites that allows users to mint NFTs.',
   },
   {
     name: 'Education Centre All-in-one System',
     description:
       "Easily manage students/courses/homework records for an education center with 3 branches and 300+ students enrolled. Provided a portal for parents to conveniently stay updated on their students' progress and ensure that all assigned tasks have been successfully accomplished.",
+  },
+  {
+    name: 'NFT minting website',
+    description:
+      'Launched multiple of websites that allows users to mint NFTs.',
   },
   {
     name: 'Real-time 2nd-hand car listings scraper',

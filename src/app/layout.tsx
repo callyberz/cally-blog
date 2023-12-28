@@ -7,7 +7,6 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import './global.css'
 import { social } from '@/lib/data'
-import { Separator } from '@radix-ui/react-separator'
 
 const meta = {
   title: 'callyberz - Blog',

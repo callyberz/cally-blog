@@ -24,11 +24,6 @@ interface RouteProps {
 }
 
 const Routes: RouteProps[] = [
-  // {
-  //   text: 'Blog',
-  //   linkTo: '/blog',
-  //   icon: <BookOpen className="md:mr-2 md:inline" />,
-  // },
   {
     text: 'Work',
     linkTo: '/work',
@@ -53,7 +48,8 @@ export function Navigation() {
         <NavigationMenuItem>
           <Link href="/" as="/" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              <HomeIcon className="md:inline" />
+              <HomeIcon className="md:mr-2 md:inline" />
+              <span className="hidden md:inline">Home</span>
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
