@@ -174,10 +174,14 @@ export const todoList: TodoList[] = [
   },
   {
     actionItem: 'Supabase',
-    finished: false,
+    finished: true,
   },
   {
     actionItem: 'Vercel AI SDK',
+    finished: false,
+  },
+  {
+    actionItem: 'Ship 1st subscription-based project',
     finished: false,
   },
 ]
@@ -197,7 +201,7 @@ export const projects = [
   {
     name: 'Education Centre All-in-one System',
     description:
-      "Easily manage students/courses/homework records for an education center with 3 branches and 300+ students enrolled. Provided a portal for parents to conveniently stay updated on their students' progress and ensure that all assigned tasks have been successfully accomplished.",
+      'Easily manage students/courses/homework records for an education center with 3 branches and 300+ students enrolled.',
   },
   {
     name: 'NFT minting website',
@@ -205,7 +209,7 @@ export const projects = [
       'Launched multiple of websites that allows users to mint NFTs.',
   },
   {
-    name: 'Real-time 2nd-hand car listings scraper',
+    name: 'Listings data scraper',
     description:
       'Actively monitor second-hand car listings based on specific criteria and send push notifications to Telegram. (testing purpose only)',
   },
@@ -219,3 +223,16 @@ export const projects = [
     description: 'Plot tree distribution for 18 districts in Hong Kong by D3js',
   },
 ]
+
+export const highlights = [
+  'Software Engineer',
+  'Web Development',
+  'Full-stack Development',
+  'ReactJS',
+  'TypeScript',
+  'JavaScript',
+  'NodeJS',
+]
+
+export const summary =
+  'Experienced Software Engineer adept in TypeScript, shipping customer-centric solutions. 5+ years of expertise in web development & product enhancement. Seeking frontend/backend/full-stack roles to innovate.'

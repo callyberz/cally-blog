@@ -4,7 +4,7 @@ import { type NextPage } from 'next'
 import React from 'react'
 import { TypographyH1 } from '@/components/common/TypographyH1'
 import { Checkbox } from '@/components/ui/checkbox'
-import { projects, todoList } from '@/lib/data'
+import { highlights, projects, summary, todoList } from '@/lib/data'
 import {
   Card,
   CardDescription,
@@ -27,18 +27,16 @@ const Home: NextPage = () => {
   return (
     <div>
       <TypographyH1>Hi, I&apos;m Calvin Lee</TypographyH1>
-      <Marquee speed={120}>
+      <Marquee speed={120} autoFill={false}>
         <TypographyH3>
-          Software Engineer | Web Development | Full-stack Development | ReactJS
-          | TypeScript | JavaScript | NodeJS | AWS |{' '}
+          {highlights.map((skill, index) => (
+            <span key={index} className="pr-2">
+              {skill} |{' '}
+            </span>
+          ))}
         </TypographyH3>
       </Marquee>
-      <TypographyP>
-        Experienced Software Engineer adept in TypeScript, shipping
-        customer-centric solutions. 5+ years of expertise in web development &
-        product enhancement. Seeking frontend/backend/full-stack roles to
-        innovate.
-      </TypographyP>
+      <TypographyP>{summary}</TypographyP>
 
       <div className="">
         <TypographyH3>I build things. Keep learning and grow.</TypographyH3>
