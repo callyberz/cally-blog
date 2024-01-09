@@ -1,0 +1,130 @@
+---
+title: You don't know JavaScript
+description: Digging back into the loops in JavaScript
+date: 2024-01-08
+---
+
+<a href="#wtfisths"><h2>WTF is `this`</h2></a>
+<div>
+    <h3>Scope</h3>
+    <div>Scope is the current context of execution</div>
+    
+    <ul>
+    <li>Global scope</li>
+    <div>
+        <span>Global scope is the outermost scope. Variables declared in the global scope are accessible everywhere</span>
+        ```tsx
+        const foo = 'bar';
+        function bar() {
+            console.log(foo);
+        }
+        bar(); // bar
+        ```
+    </div>
+    
+    <li>Function scope</li>
+    <div>
+        <span>Scoped to use the variables declared inside the function</span>
+        ```tsx
+        function bar() {
+            const foo = 'bar1';
+            console.log(foo);
+        }
+        const foo = 'bar2';
+        bar(); // bar1
+        // throw `foo is not accessible here`
+        ```
+    </div>
+
+    <li>Block scope</li>
+    <div>
+        <span>Scoped to use the variables declared inside `{}` can be called </span>
+        ```tsx
+        {
+            const foo = 'bar1';
+            console.log(foo); // bar1
+        }
+        console.log(foo); // throw `foo is not accessible here`
+        ```
+    </div>
+    </ul>
+
+<h3>After understanding the scope, let's dive into Lexical Scope</h3>
+<div>Lexical scope is the scope of the function defined at the time of declaration (Static Scope)</div>
+<div>In other words, when the program is complied, it already defined the scope. But when it comes to use case of dynamic scoping, the value is determined by the function that called the current function.</div>
+<div>
+    <li>Example: `bar()` and `baz()` share the same lexical scope (global)</li>
+    ```tsx
+    const foo = 'bar';
+    function bar() {
+        console.log(foo);
+    }
+    function baz() {
+        const foo = 'baz';
+        bar();
+    }
+    baz(); // bar
+    ```
+    </div>
+</div>
+
+<h3>`this`</h3>
+<li>When a function is invoked, an <b>execution context</b> is created. This context has a property called `this` which refers to the object that called the function.</li>
+<ol>
+    <li>When a function is invoked in the global scope, `this` refers to the global object</li>
+    <li>When a function is invoked in strict mode, `this` is undefined</li>
+    <li>When a function is invoked in the method, `this` refers to the object that called the function</li>
+    <li>When a function is invoked with `new` keyword, `this` refers to the newly created object</li>
+    <li>When a function is invoked with `call`, `apply`, `bind`, `this` refers to the object passed in</li>
+</ol>
+
+<div>Global context</div>
+- Function defined in global scope is called in global context
+
+
+<div>Object context</div>
+- Inside object this refers to the object itself 
+```tsx
+const obj = {
+  name: "Example",
+  regularFunc: function() {
+    console.log(this.name); // Refers to 'name' property of 'obj'
+  },
+  arrowFunc: () => {
+    console.log(this.name); // 'this' inherits from the lexical scope
+  }
+};
+
+obj.regularFunc(); // Outputs: "Example"
+obj.arrowFunc(); // Outputs: undefined (or whatever is in the global context)
+```
+
+<h3>Arrow function</h3>
+<div>Arrow function does not have `this` context</div>
+<div>It directly inherits from lexical context (the context where it is defined). It is not possible to bind `this` to arrow function. Because of this, arrow function is not suitable for method definition</div>
+
+```tsx
+// bug occrus as it is not possible to bind `this` to arrow function
+// then it inherits from lexical context
+// which is the global context
+// so `this.name` is undefined
+const foo = {
+    name: 'bar',
+    sayName: () => {
+        console.log(this.name);
+        return;
+    }
+}
+```
+
+<div>Suggested use cases of arrow function are: callback function, event handlers.</div>
+```tsx
+const foo = {
+    name: 'bar',
+    sayName: function() {
+        setTimeout(() => {
+            console.log(this.name);
+        }, 1000);
+    }
+}
+```

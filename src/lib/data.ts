@@ -188,8 +188,9 @@ export const todoList: TodoList[] = [
 
 export const projects = [
   {
-    name: 'Breathing Exercise Web App',
-    description: 'Provide breathing techniques for stress relief.',
+    name: 'Mindful Exercises',
+    description:
+      'A website that provides mindfulness exercises for users. (~HeadSpace)',
     url: '',
     github: 'https://github.com/callyberz/mindful',
   },
