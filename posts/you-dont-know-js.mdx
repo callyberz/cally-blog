@@ -69,18 +69,30 @@ date: 2024-01-08
 </div>
 
 <h3>`this`</h3>
-<li>When a function is invoked, an <b>execution context</b> is created. This context has a property called `this` which refers to the object that called the function.</li>
+  When a function is invoked, an <b>execution context</b> is created. This
+  context has a property called `this` which refers to the object that called
+  the function.
 <ol>
-    <li>When a function is invoked in the global scope, `this` refers to the global object</li>
-    <li>When a function is invoked in strict mode, `this` is undefined</li>
-    <li>When a function is invoked in the method, `this` refers to the object that called the function</li>
-    <li>When a function is invoked with `new` keyword, `this` refers to the newly created object</li>
-    <li>When a function is invoked with `call`, `apply`, `bind`, `this` refers to the object passed in</li>
+  <li>
+    When a function is invoked in the global scope, `this` refers to the global
+    object
+  </li>
+  <li>When a function is invoked in strict mode, `this` is undefined</li>
+  <li>
+    When a function is invoked in the method, `this` refers to the object that
+    called the function
+  </li>
+  <li>
+    When a function is invoked with `new` keyword, `this` refers to the newly
+    created object
+  </li>
+  <li>
+    When a function is invoked with `call`, `apply`, `bind`, `this` refers to
+    the object passed in
+  </li>
 </ol>
 
-<div>Global context</div>
-- Function defined in global scope is called in global context
-
+<div>Global context</div>- Function defined in global scope is called in global context
 
 <div>Object context</div>
 - Inside object this refers to the object itself 
@@ -97,7 +109,8 @@ const obj = {
 
 obj.regularFunc(); // Outputs: "Example"
 obj.arrowFunc(); // Outputs: undefined (or whatever is in the global context)
-```
+
+````
 
 <h3>Arrow function</h3>
 <div>Arrow function does not have `this` context</div>
@@ -115,7 +128,7 @@ const foo = {
         return;
     }
 }
-```
+````
 
 <div>Suggested use cases of arrow function are: callback function, event handlers.</div>
 ```tsx
@@ -128,3 +141,80 @@ const foo = {
     }
 }
 ```
+
+<div>
+<h3>Prototype/__proto__</h3>
+In JavaScript, every object/function (using `new`) has a prototype. The prototype is also an object. All objects inherit their properties and methods from their prototype. The idea of prototype is to to share properties/methods between objects when defining similar objects.
+
+<div style={{backgroundColor: '#515761', padding: '1rem', borderRadius: 8}}>
+Here is a catch: for function without `new` keyword, the prototype is `undefined`. For function using `new` keyword to create an object, the prototype is the object that is created by the function.
+</div>
+
+```tsx
+function Person() {
+    this.name = 'John';
+}
+Person.prototype.age = 24;
+
+const foo = Person(); // no prototype
+const foo2 = new Person(); // has prototype
+```
+
+<div> WTH does `new` keyword do? </div>
+<li>Create an object</li>
+<li>Set the prototype of the object (i.e. `__proto__`) to the prototype of the function, making prototype chaining</li>
+<li>Execute the function with `this` pointing to the newly created object</li>
+<li>Return the newly created object</li>
+
+<div>
+<h3>Prototype chaining</h3>
+JavaScript uses prototype chaining to find the properties and methods of an object by traversing the prototype chain until undefined is found, which is the end of the prototype chain.  
+Example: `String.prototype`, `Array.prototype`, `Object.prototype`, `Function.prototype`, `Number.prototype`, `Boolean.prototype`, `Date.prototype`, `RegExp.prototype`, `Error.prototype`, `Symbol.prototype`, `Promise.prototype`, `Map.prototype`, `Set.prototype`, `WeakMap.prototype`, `WeakSet.prototype`, `ArrayBuffer.prototype`, `SharedArrayBuffer.prototype`, `Atomics.prototype`, `DataView.prototype`, `JSON.prototype`, `Math.prototype`, `Reflect.prototype`
+</div>
+```tsx
+const name : string = 'John';
+console.log(name.toUpperCase()); // `name` is a string but does not have toUpperCase method
+// find the method in the prototype chain (String.prototype)
+
+const arr = [1, 2, 3];
+console.log(arr.map((item) => item + 1)); // `arr` is an array but does not have map method
+// find the method in the prototype chain (Array.prototype)
+
+const obj = { name: 'John' };
+console.log(obj.hasOwnProperty('name')); // `obj` is an object but does not have hasOwnProperty method
+// find the method in the prototype chain (Object.prototype)
+```
+
+<h3>`__proto__`</h3>
+<div>Only object has `__proto__`. It is a property of an object that points to the prototype of the object</div>
+<div>The object is inheriting the prototpye as defined in fucntion/class and saving it in `__proto__`</div>
+```tsx
+function Person(name) {
+    this.name = name;
+}
+
+Person.prototype.greet = function() {
+    return `Hello, my name is ${this.name}`;
+};
+
+let person1 = new Person("Alice");
+console.log(person1.greet()); // "Hello, my name is Alice"
+
+console.log(person1.__proto__ === Person.prototype); // true
+console.log(Person.prototype.constructor === Person); // true
+```
+</div>
+
+<div>
+<h3>Generator</h3>
+<div>Generator is a function that can be paused and resumed, using `function*`/`function *foo()` syntax.</div>
+<div>Generator function returns an iterator object, which has a `next()` method that returns an object with two properties: `value` and `done`.</div>
+<div>When the generator function is called, the code inside the function is not executed. Instead, it returns an iterator object.</div>
+```tsx
+function* foo() {
+    yield 1;
+    yield 2;
+    yield 3;
+}
+```
+</div>
