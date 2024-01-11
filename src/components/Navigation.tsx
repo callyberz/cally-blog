@@ -24,21 +24,21 @@ interface RouteProps {
 }
 
 const Routes: RouteProps[] = [
-  {
-    text: 'Work',
-    linkTo: '/work',
-    icon: <Briefcase className="md:mr-2 md:inline" />,
-  },
+  // {
+  //   text: 'Work',
+  //   linkTo: '/work',
+  //   icon: <Briefcase className="md:mr-2 md:inline" />,
+  // },
   {
     text: 'Skils',
     linkTo: '/skills',
     icon: <UserCircle2 className="md:mr-2 md:inline" />,
   },
-  {
-    text: 'Educaiton',
-    linkTo: '/education',
-    icon: <School className="md:mr-2 md:inline" />,
-  },
+  // {
+  //   text: 'Educaiton',
+  //   linkTo: '/education',
+  //   icon: <School className="md:mr-2 md:inline" />,
+  // },
 ]
 
 export function Navigation() {

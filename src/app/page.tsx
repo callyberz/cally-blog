@@ -3,8 +3,7 @@
 import { type NextPage } from 'next'
 import React from 'react'
 import { TypographyH1 } from '@/components/common/TypographyH1'
-import { Checkbox } from '@/components/ui/checkbox'
-import { highlights, projects, summary, todoList } from '@/lib/data'
+import { highlights, projects, summary } from '@/lib/data'
 import {
   Card,
   CardDescription,
@@ -38,22 +37,13 @@ const Home: NextPage = () => {
       </Marquee>
       <TypographyP>{summary}</TypographyP>
 
-      <div className="">
-        <TypographyH3>I build things. Keep learning and grow.</TypographyH3>
-        {todoList.map((item, key) => {
-          const { actionItem } = item
-          return (
-            <div className="mt-2 flex items-center space-x-2" key={key}>
-              <Checkbox id={actionItem} checked={item.finished} />
-              <label
-                htmlFor={actionItem}
-                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-              >
-                {actionItem}
-              </label>
-            </div>
-          )
-        })}
+      <div className="mt-10">
+        <TypographyH1>Notes</TypographyH1>
+        <div className="grid grid-cols-2 gap-4 py-4">
+          {posts.map((post, idx) => (
+            <PostCard key={idx} {...post} />
+          ))}
+        </div>
       </div>
 
       <div className="mt-10 border-t border-gray-200 pt-10 dark:border-gray-700">
@@ -86,12 +76,6 @@ const Home: NextPage = () => {
             </Card>
           ))}
         </div>
-      </div>
-
-      <div className="mt-10 space-y-12 border-t border-gray-200 pt-10 dark:border-gray-700">
-        {posts.map((post, idx) => (
-          <PostCard key={idx} {...post} />
-        ))}
       </div>
     </div>
   )
