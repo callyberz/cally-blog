@@ -39,7 +39,7 @@ const Home: NextPage = () => {
 
       <div className="mt-10">
         <TypographyH1>Notes</TypographyH1>
-        <div className="grid grid-cols-2 gap-4 py-4">
+        <div className="grid grid-cols-1 gap-4 py-4 md:grid-cols-2">
           {posts.map((post, idx) => (
             <PostCard key={idx} {...post} />
           ))}

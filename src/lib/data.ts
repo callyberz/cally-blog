@@ -189,8 +189,7 @@ export const todoList: TodoList[] = [
 export const projects = [
   {
     name: 'Mindful Exercises',
-    description:
-      'A website that provides mindfulness exercises for users. (~HeadSpace)',
+    description: 'A website that provides mindfulness exercises. (~HeadSpace)',
     url: '',
     github: 'https://github.com/callyberz/mindful',
   },
@@ -210,12 +209,12 @@ export const projects = [
       'Launched multiple of websites that allows users to mint NFTs.',
   },
   {
-    name: 'Listings data scraper',
+    name: 'Real-time listings scraper',
     description:
       'Actively monitor second-hand car listings based on specific criteria and send push notifications to Telegram. (testing purpose only)',
   },
   {
-    name: 'Custom ESLint',
+    name: 'Custom ESLint rules',
     description:
       'Use AST parser to define self-used ESLint rule for much better warning/error prompt',
   },
