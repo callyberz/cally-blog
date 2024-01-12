@@ -1,0 +1,58 @@
+---
+title: React's Evolving Paradigm
+description: Understanding UI as a Function of State
+date: 2024-01-12
+---
+
+# React's Evolving Paradigm: Understanding UI as a Function of State
+
+<Image
+  alt={`React Paradigm`}
+  src={`/images/react-paradigm.png`}
+  width={1440}
+  height={960}
+  priority
+/>
+
+
+React at its core embraces a simple concept: UI as a function of state. This paradigm shift is revolutionizing how we render data, leading devs to rethink the balance between client-side and server-side rendering. Let’s dive into this transformative approach.
+
+## Client-Side Rendering (CSR): A Traditional View
+
+Traditionally, React operates on the principle that `UI = f(state)` This is the essence of client-side rendering (CSR), where the user interface is a direct outcome of the state or data available. This approach has distinct characteristics:
+
+- **Low Latency Interaction:** UI updates are instantaneous, providing a seamless user experience.
+- **Network Efficiency:** Zero network roundtrips are required for UI updates.
+- **Data Handling:** If external data is involved, additional network roundtrips can introduce latency, potentially affecting user experience.
+- **State Management:** All state changes triggered by user interactions are managed within the client's browser.
+
+However, CSR is not without its drawbacks, particularly when it comes to SEO and initial load performance.
+
+## Server-Side Rendering (SSR): Expanding Horizons
+
+React's paradigm is extending to embrace server-side rendering (SSR). SSR leverages server capabilities, enhancing aspects like SEO and initial page load times. Here’s what you need to know:
+
+- **Server API Access:** SSR allows the use of server APIs, like file system operations (`fs.read`), which are only executable on the server.
+- **Execution Environment:** SSR code runs exclusively on the server, either in real-time or during the build process.
+- **React Server Components (RSC):** A revolutionary feature where you can host your frontend project on a server. Notably, RSC doesn't always necessitate a server post-build:
+    - For projects hosted on a node server ([Next.js documentation](https://nextjs.org/docs/pages/building-your-application/deploying#nodejs-server)), the build process generates a distributable directory sans server-specific code.
+    - RSC projects can also be built in such a way that the final output is simply an HTML file with current data, eliminating the need for server-side code in the `/dist` directory post-build.
+    - RSC can also be used to generate static sites, which are then hosted on a CDN. ([Next.js documentation](https://nextjs.org/docs/app/building-your-application/upgrading/app-router-migration#server-side-rendering-getserversideprops))
+
+## Balancing Client and Server Rendering
+
+The decision to use CSR or SSR in React depends on various factors:
+
+- **Latency and Roundtrips:** Consider the impact on user experience and interaction speed.
+- **Data Source and Interaction:** Determine where the data resides and how users will interact with it.
+- **SEO Requirements:** SSR generally offers better SEO capabilities due to its server-side nature.
+
+React's evolving approach to rendering, encapsulating both CSR and SSR, offers developers a flexible toolkit to create optimized, user-friendly web applications. It's a thrilling time to be part of the React ecosystem, as it continues to push the boundaries of what's possible in web development.
+
+---
+
+<div>
+-  Thanks to Dan Abramov <a>https://overreacted.io/the-two-reacts/</a> and 
+-  Theo <a>https://www.youtube.com/watch?v=KuhfT6-I3QU</a> for the inspiration    
+</div>
+
