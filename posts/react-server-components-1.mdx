@@ -1,0 +1,47 @@
+---
+title: Understanding SSG, Static export and RSC
+description: Static Site Generation, Static export, and React Server Components
+date: 2024-01-14
+---
+
+# What are React Server Components?
+
+React Server Components (RSC) offer a new way to build React applications that enables server-side rendering capabilities in a more efficient manner. This innovative approach allows parts of a React application to be rendered on the server, which are then streamed and rehydrated on the client.
+
+
+## Benefits of RSC
+
+- **Performance Improvements:** By offloading rendering to the server, RSC can significantly improve the performance of web applications, especially on devices with limited processing power.
+- **Enhanced Data Fetching:** RSC allows for direct backend data fetching, simplifying the overall data management strategy.
+- **Reduced Client-Side Code:** This approach minimizes the amount of JavaScript needed on the client side, leading to faster load times.
+
+## Static Site Generation (SSG)
+- by default use SSG to build
+- no server is involved
+- custom API endpoints are normally handled by Vercel Serverless Functions
+- when building the project, it runs/renders the code (component) and caches the result in a built folder
+- host on any node server (next start) or docker
+- deploy to any node server and host it using `next start`
+
+## Static export
+- an OG way to host a web page
+- nextjs provides a way to static export (does the same thing as SSG), where RSC will be called at build time, then cache and write the result in a file
+- we dont care about client component as it is dynamic (most likey some random response from 3rd party endpoints)
+- how to build it? create a single HTML entry point, host HTML/CSS/JS assets to CDN/S3/Github Pages e.g.
+- eg: by adding `output: export`
+  ![code](https://i.imgur.com/d5RLPns.png)
+- then run npm run build, out/ will look like this
+  ![files](https://i.imgur.com/nJ9MDyY.png)
+- we can host this `index.html` as the single point using AWS, Github Pages, Wix, even locally
+- install Live Server on VSCode https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer
+- copy all the files in `out/` then host using Live Sever
+- RSC will be called at build time
+- client component: if the app has routes, simply host this `index.html` will not work if it is not a SPA
+  - As SPA will navigate to different routes on the client
+- you are good to go!
+- ❌❌❌ Dynamic endpoints/functions are not supported in static export 
+    ![error](https://i.imgur.com/C2Z3Ubi.png)
+
+## Further reading
+- [Code example of SSG, Static export](https://github.com/callyberz/rsc-showcase)
+- [nextjs docs](https://nextjs.org/docs/pages/building-your-application/deploying/static-exports)
