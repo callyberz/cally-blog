@@ -5,7 +5,6 @@ import ThemeSwitch from '@/components/ThemeSwitch'
 import { WEBSITE_HOST_URL } from '@/lib/constants'
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import PlausibleProvider from 'next-plausible'
 import './global.css'
 import { social } from '@/lib/data'
 
@@ -53,7 +52,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <PlausibleProvider domain="callyberz.com" />
+        <script
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id="d71eba42-88f0-4083-803c-59867e618b22"
+        ></script>
       </head>
       <body>
         <ThemeProvider attribute="class" defaultTheme="dark">

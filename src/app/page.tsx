@@ -44,12 +44,6 @@ const Home: NextPage = () => {
             <PostCard key={idx} {...post} />
           ))}
         </div>
-        {/* or using flexbox */}
-        {/* <div className="flex flex-wrap md:flex-row-reverse">
-          {posts.map((post, idx) => (
-            <div className="w-full md:w-2/4" key={idx}>
-              <PostCard {...post} />
-          </div> */}
       </div>
 
       <div className="mt-10 border-t border-gray-200 pt-10 dark:border-gray-700">
