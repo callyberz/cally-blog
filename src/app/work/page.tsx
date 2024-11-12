@@ -20,7 +20,7 @@ const WorkExperience = () => {
         return (
           <CardContent key={index}>
             <ToggleContent title={item.company}>
-              <div className="">
+              <>
                 <div className="text-xl">
                   <TypographyP>{item.title}</TypographyP>
                 </div>
@@ -40,7 +40,7 @@ const WorkExperience = () => {
                     <li>{value}</li>
                   </ul>
                 ))}
-              </div>
+              </>
             </ToggleContent>
           </CardContent>
         )
