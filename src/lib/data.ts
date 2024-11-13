@@ -1,4 +1,4 @@
-interface WorkExperience {
+type WorkExperience = {
   company: string
   title: string
   location: string
@@ -7,7 +7,7 @@ interface WorkExperience {
   descriptions: string[]
 }
 
-interface EducationExperience {
+type EducationExperience = {
   school: string
   location: string
   programme: string
@@ -15,15 +15,22 @@ interface EducationExperience {
   dateEnd: string
 }
 
-interface Skills {
+type Skills = {
   type: string
   items: string[]
   highlights: string[]
 }
 
-interface TodoList {
+type TodoList = {
   actionItem: string
   finished: boolean
+}
+
+type ProjectType = {
+  name: string
+  description: string
+  github?: string
+  url?: string
 }
 
 export const education: EducationExperience[] = [
@@ -199,7 +206,7 @@ export const todoList: TodoList[] = [
   },
 ]
 
-export const projects = [
+export const projects: ProjectType[] = [
   {
     name: 'YouTube Playback Speed Tracker',
     description: 'A Chrome extension that tracks your YouTube playback speed.',
