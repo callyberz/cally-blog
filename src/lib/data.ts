@@ -201,12 +201,6 @@ export const todoList: TodoList[] = [
 
 export const projects = [
   {
-    name: 'Mindful Exercises',
-    description: 'A website that provides mindfulness exercises. (~HeadSpace)',
-    url: '',
-    github: 'https://github.com/callyberz/mindful',
-  },
-  {
     name: 'YouTube Playback Speed Tracker',
     description: 'A Chrome extension that tracks your YouTube playback speed.',
     github: 'https://github.com/callyberz/speed-checker',
@@ -217,11 +211,6 @@ export const projects = [
       'Easily manage students/courses/homework records for an education center with 3 branches and 300+ students enrolled.',
   },
   {
-    name: 'NFT minting website',
-    description:
-      'Launched multiple of websites that allows users to mint NFTs.',
-  },
-  {
     name: 'Real-time listings scraper',
     description:
       'Actively monitor second-hand car listings based on specific criteria and send push notifications to Telegram. (testing purpose only)',
@@ -230,10 +219,6 @@ export const projects = [
     name: 'Custom ESLint rules',
     description:
       'Use AST parser to define self-used ESLint rule for much better warning/error prompt',
-  },
-  {
-    name: 'Tree distribution in Hong Kong',
-    description: 'Plot tree distribution for 18 districts in Hong Kong by D3js',
   },
 ]
 
