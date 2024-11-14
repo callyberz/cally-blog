@@ -20,9 +20,9 @@ This Starter is **heavily** inspired by [Lee Robinson](https://github.com/leerob
 git clone https://github.com/ChangoMan/nextjs-mdx-blog.git
 cd nextjs-typescript-mdx-blog
 
-npm install
+pnpm install
 
-npm run dev
+pnpm run dev
 ```
 
 Your new site will be up at http://localhost:3000/
