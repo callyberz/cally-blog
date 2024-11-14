@@ -61,8 +61,8 @@ export const experiences: WorkExperience[] = [
     descriptions: [
       'Boosted user engagement by 70% and generated an additional $1M ARR within six months by implementing features in full-stack applications using React.js and Node.js',
       'Developed and deployed a microservices-based rewards system that secured a portion of the intranet market, bringing in an increase in repeat purchases by 50% within the first 6 months',
-      'Engineered an event-sourced transactional ledger with PostgreSQL and Kafka, ensuring real-time tracking immutability, auditability and high availability under heavy loads',
-      'Automated CI/CD processes using GitHub Actions, resulting in a 40% reduction in deployment time and enabling 5 additional deployments per month, while managing service deployment through Docker and Kubernetes to increase system scalability by 30%',
+      'Engineered an event-sourced transactional ledger system with PostgreSQL and Kafka, ensuring real-time tracking immutability, auditability and high availability under heavy loads',
+      'Automated CI/CD processes using GitHub Actions, resulting in a 40% reduction in deployment time, while managing service deployment through Docker and Kubernetes.'
     ],
   },
   {
