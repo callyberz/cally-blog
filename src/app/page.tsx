@@ -17,6 +17,7 @@ import { compareDesc } from 'date-fns'
 import Marquee from 'react-fast-marquee'
 import { TypographyH3 } from '@/components/common/TypographyH3'
 import { TypographyP } from '@/components/common/TypographyP'
+import { TypographyH2 } from '@/components/common/TypographyH2'
 
 const Home: NextPage = () => {
   const posts = allPosts.sort((a, b) =>
@@ -25,7 +26,11 @@ const Home: NextPage = () => {
 
   return (
     <div>
-      <TypographyH1>Hi, I&apos;m Calvin Lee</TypographyH1>
+      <div className="flex flex-row items-center justify-between">
+        <TypographyH1>Hi, I&apos;m Calvin Lee</TypographyH1>
+        📍 Toronto, ON
+      </div>
+
       <Marquee speed={120} autoFill={false}>
         <TypographyH3>
           {highlights.map((skill, index) => (
@@ -35,6 +40,7 @@ const Home: NextPage = () => {
           ))}
         </TypographyH3>
       </Marquee>
+
       <TypographyP>{summary}</TypographyP>
 
       <div className="mt-10">

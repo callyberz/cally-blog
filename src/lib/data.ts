@@ -132,12 +132,15 @@ export const skills: Skills[] = [
       'React',
       'Javascript',
       'Typescript',
-      'CSS/Less',
+      'NextJS',
+      'CSS module/Less',
       'TailwindCSS',
       'Mobx',
       'Redux',
       'React Native',
       'Jest',
+      'Vitest',
+      'Monorepo',
     ],
     highlights: [
       'Migrate from Javascript to Typescript',
@@ -148,10 +151,21 @@ export const skills: Skills[] = [
   },
   {
     type: 'Backend',
-    items: ['NodeJS', 'ExpressJS', 'GraphQL', 'MongoDB'],
+    items: [
+      'NodeJS',
+      'NestJS',
+      'Fastify',
+      'ExpressJS',
+      'GraphQL',
+      'Postgresql',
+      'MongoDB',
+      'Prisma ORM',
+      'JWT',
+      'OAuth2.0',
+    ],
     highlights: [
-      // 'Design and build RESTful & GraphQL API using Nodejs framework',
-      // 'Perform testing using Selenium for automation',
+      'Design and build RESTful & GraphQL API using Nodejs framework',
+      'Build microservices in respect to event driven architecture'
     ],
   },
   {
@@ -209,23 +223,30 @@ export const todoList: TodoList[] = [
 export const projects: ProjectType[] = [
   {
     name: 'YouTube Playback Speed Tracker',
-    description: 'A Chrome extension that tracks your YouTube playback speed.',
+    description:
+      'A Chrome extension that tracks and displays your playback speed on YouTube.',
     github: 'https://github.com/callyberz/speed-checker',
   },
   {
-    name: 'Education Centre All-in-one System',
+    name: 'All-in-One Education Center Management System',
     description:
-      'Easily manage students/courses/homework records for an education center with 3 branches and 300+ students enrolled.',
+      'Seamlessly manage student records, courses, and homework across an education center with three branches and over 300 enrolled students.',
   },
   {
     name: 'Real-time listings scraper',
     description:
-      'Actively monitor second-hand car listings based on specific criteria and send push notifications to Telegram. (testing purpose only)',
+      'Monitors second-hand car listings in real-time based on your chosen criteria, sending push notifications to Telegram for updates. (For testing purposes only)',
   },
   {
     name: 'Custom ESLint rules',
     description:
       'Use AST parser to define self-used ESLint rule for much better warning/error prompt',
+  },
+  {
+    name: 'Build Promise A+ from scratech',
+    description:
+      'Create a custom implementation of JavaScript Promises that meets the Promise A+ standard, covering essential features.',
+    github: 'https://github.com/callyberz/promise-aplus',
   },
 ]
 
@@ -240,4 +261,4 @@ export const highlights = [
 ]
 
 export const summary =
-  'Experienced Software Engineer adept in TypeScript, shipping customer-centric solutions. 5+ years of expertise in web development & product enhancement. Seeking frontend/backend/full-stack roles to innovate.'
+  'A software engineer with 6 years of experience loves creating web apps. I spend my days working with TypeScript, React, and Node.js, bringing ideas to life on both the frontend and backend. I’m driven by a passion for building products that people actually want to use—and having fun while doing it!'

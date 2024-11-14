@@ -24,7 +24,9 @@ const Skills = () => {
             ))}
             <ul className="ml-4 list-disc [&>li]:mt-2">
               {skill.highlights.map((value, key) => (
-                <li key={key}>{value}</li>
+                <li key={key} className="text-sm">
+                  {value}
+                </li>
               ))}
             </ul>
           </CardContent>
