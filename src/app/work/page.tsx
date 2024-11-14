@@ -32,7 +32,7 @@ const WorkExperience = () => {
                       item?.dateEnd ?? 'Now',
                     )}
                   </p>
-                  <p>{item.location}</p>
+                  <p>{`📍 ${item.location}`}</p>
                 </div>
 
                 {item.descriptions.map((value, index) => (

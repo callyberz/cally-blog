@@ -70,7 +70,7 @@ export const experiences: WorkExperience[] = [
     title: 'Engineer II',
     location: 'Hong Kong',
     dateStart: 'May 2022',
-    dateEnd: null,
+    dateEnd: 'Oct 2023',
     descriptions: [
       'Develop account-related system using React, including user onboarding, OAuth connection & security settings',
       'Mantain stable OAuth connection with other platforms e.g. TradingView',
