@@ -8,6 +8,8 @@ import { ToggleContent } from '@/components/common/ToggleContent'
 import { CommonUtil } from '@/lib/CommonUtil'
 import { TypographyH1 } from '@/components/common/TypographyH1'
 import { TypographyP } from '@/components/common/TypographyP'
+import { Button, buttonVariants } from '@/components/ui/button'
+import Link from 'next/link'
 
 const WorkExperience = () => {
   return (
@@ -32,7 +34,20 @@ const WorkExperience = () => {
                       item?.dateEnd ?? 'Now',
                     )}
                   </p>
-                  <p>{`📍 ${item.location}`}</p>
+
+                  <div className="flex items-center gap-2">
+                    <p>{`📍 ${item.location}`}</p>
+                    {item.companyUrl && (
+                      <Link
+                        href={item.companyUrl}
+                        className={buttonVariants({ variant: 'link' })}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        🔗 Company Website
+                      </Link>
+                    )}
+                  </div>
                 </div>
 
                 {item.descriptions.map((value, index) => (

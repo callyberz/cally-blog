@@ -5,6 +5,7 @@ type WorkExperience = {
   dateStart: string
   dateEnd: string | null
   descriptions: string[]
+  companyUrl?: string
 }
 
 type EducationExperience = {
@@ -58,11 +59,12 @@ export const experiences: WorkExperience[] = [
     location: 'Toronto, ON, Canada',
     dateStart: 'Mar 2024',
     dateEnd: 'Current',
+    companyUrl: 'https://www.simpplr.com/',
     descriptions: [
       'Boosted user engagement by 70% and generated an additional $1M ARR within six months by implementing features in full-stack applications using React.js and Node.js',
       'Developed and deployed a microservices-based rewards system that secured a portion of the intranet market, bringing in an increase in repeat purchases by 50% within the first 6 months',
       'Engineered an event-sourced transactional ledger system with PostgreSQL and Kafka, ensuring real-time tracking immutability, auditability and high availability under heavy loads',
-      'Automated CI/CD processes using GitHub Actions, resulting in a 40% reduction in deployment time, while managing service deployment through Docker and Kubernetes.'
+      'Automated CI/CD processes using GitHub Actions, resulting in a 40% reduction in deployment time, while managing service deployment through Docker and Kubernetes.',
     ],
   },
   {
@@ -71,6 +73,7 @@ export const experiences: WorkExperience[] = [
     location: 'Hong Kong',
     dateStart: 'May 2022',
     dateEnd: 'Oct 2023',
+    companyUrl: 'https://www.okx.com/',
     descriptions: [
       'Develop account-related system using React, including user onboarding, OAuth connection & security settings',
       'Mantain stable OAuth connection with other platforms e.g. TradingView',
@@ -88,6 +91,7 @@ export const experiences: WorkExperience[] = [
     location: 'Hong Kong',
     dateStart: 'June 2021',
     dateEnd: 'Mar 2022',
+    companyUrl: 'https://silverhorngroup.com/',
     descriptions: [
       'Develop internal system that integrates with centralized data management using React & NestJS',
       'Manage a team of 4-5 developers/interns',
@@ -102,6 +106,7 @@ export const experiences: WorkExperience[] = [
     location: 'Hong Kong',
     dateStart: 'June 2019',
     dateEnd: 'June 2021',
+    companyUrl: 'https://www.midland.com.hk/en/',
     descriptions: [
       'Migrate legacy Windows app to web for CRUD listings using React & NodeJS',
       'Work closely with UI/UX designers to deliver quality IT solutions',
@@ -165,7 +170,7 @@ export const skills: Skills[] = [
     ],
     highlights: [
       'Design and build RESTful & GraphQL API using Nodejs framework',
-      'Build microservices in respect to event driven architecture'
+      'Build microservices in respect to event driven architecture',
     ],
   },
   {
@@ -222,6 +227,16 @@ export const todoList: TodoList[] = [
 
 export const projects: ProjectType[] = [
   {
+    name: 'Ledger System',
+    description:
+      'Designed and implemented a ledger system similar to a bank account from scratch, leveraging microservices and event-driven architecture to ensure scalability, reliability, and high performance under heavy load.',
+  },
+  {
+    name: 'Passkey Login Implementation',
+    description:
+      'Developed a passwordless (aka passkey) login system with Multi-Factor Authentication (MFA) to enhance security while ensuring a seamless user experience, focusing on secure data handling and integration with third-party authentication providers.',
+  },
+  {
     name: 'YouTube Playback Speed Tracker',
     description:
       'A Chrome extension that tracks and displays your playback speed on YouTube.',
@@ -243,7 +258,7 @@ export const projects: ProjectType[] = [
       'Use AST parser to define self-used ESLint rule for much better warning/error prompt',
   },
   {
-    name: 'Build Promise A+ from scratech',
+    name: 'Build Promise A+ from scratch',
     description:
       'Create a custom implementation of JavaScript Promises that meets the Promise A+ standard, covering essential features.',
     github: 'https://github.com/callyberz/promise-aplus',
