@@ -17,7 +17,6 @@ import { compareDesc } from 'date-fns'
 import Marquee from 'react-fast-marquee'
 import { TypographyH3 } from '@/components/common/TypographyH3'
 import { TypographyP } from '@/components/common/TypographyP'
-import { TypographyH2 } from '@/components/common/TypographyH2'
 
 const Home: NextPage = () => {
   const posts = allPosts.sort((a, b) =>
