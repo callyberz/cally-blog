@@ -61,10 +61,7 @@ export const experiences: WorkExperience[] = [
     dateEnd: 'Current',
     companyUrl: 'https://www.simpplr.com/',
     descriptions: [
-      'Boosted user engagement by 70% and generated an additional $1M ARR within six months by implementing features in full-stack applications using React.js and Node.js',
-      'Developed and deployed a microservices-based rewards system that secured a portion of the intranet market, bringing in an increase in repeat purchases by 50% within the first 6 months',
-      'Engineered an event-sourced transactional ledger system with PostgreSQL and Kafka, ensuring real-time tracking immutability, auditability and high availability under heavy loads',
-      'Automated CI/CD processes using GitHub Actions, resulting in a 40% reduction in deployment time, while managing service deployment through Docker and Kubernetes.',
+      'I built and designed the rewards system for Simpplr using React, TypeScript,Nodejs, PostgreSQL, Kafka, Kubernetes from scratch. It is a ledger system that users can redeem and receive points for rewards. Brought in an additional $1M ARR within six months by implementing addon features on top of the recognition system.',
     ],
   },
   {
@@ -75,14 +72,7 @@ export const experiences: WorkExperience[] = [
     dateEnd: 'Oct 2023',
     companyUrl: 'https://www.okx.com/',
     descriptions: [
-      'Develop account-related system using React, including user onboarding, OAuth connection & security settings',
-      'Mantain stable OAuth connection with other platforms e.g. TradingView',
-      'Integrate anti-bot protection to decrease MFA toll fraud',
-      'Introdce Passkey (FIDO), AppleId as alternative login/register methods',
-      'Ship top-priority tasks due to local changes in regulatory measures (UK, Turkey)',
-      'Review project specifications & design technology solutions that meet expectations',
-      'Refactor & convert legacy codebase to use TypeScript, resulting in increased code maintainability & reduction in bugs',
-      'Adopt server-side rendering (SSR), resulting in improved performance (core web vitals >70%), better SEO & UX',
+      "I played a role in safeguarding user accounts by introducing anti-bot protection to combat MFA toll fraud and modernizing authentication methods with Passkeys, Wallet, AppleId login. I'm pleasured to work with a team that is passionate about building a secure and user-friendly platform that serves over 50M+ global users daily.",
     ],
   },
   {
@@ -93,11 +83,7 @@ export const experiences: WorkExperience[] = [
     dateEnd: 'Mar 2022',
     companyUrl: 'https://silverhorngroup.com/',
     descriptions: [
-      'Develop internal system that integrates with centralized data management using React & NestJS',
-      'Manage a team of 4-5 developers/interns',
-      'Cooperate with data management team to ensure proper integration & data security',
-      'Develop automated PDF statement generation',
-      'Applications planning, development, deployment',
+      'I contributed to an internal system integrated with centralized data management and led a team of 4-5 developers, while also automating PDF statement generation.',
     ],
   },
   {
@@ -108,10 +94,7 @@ export const experiences: WorkExperience[] = [
     dateEnd: 'June 2021',
     companyUrl: 'https://www.midland.com.hk/en/',
     descriptions: [
-      'Migrate legacy Windows app to web for CRUD listings using React & NodeJS',
-      'Work closely with UI/UX designers to deliver quality IT solutions',
-      'Cooperate with vendor by combining both sides of projects',
-      'Involve in system/applications planning, development, deployment',
+      'I migrated a legacy Windows app to a web platform for CRUD listings and collaborated with vendors and UI/UX designers on system development and deployment using microservices.',
     ],
   },
   {
@@ -121,11 +104,7 @@ export const experiences: WorkExperience[] = [
     dateStart: 'June 2018',
     dateEnd: 'May 2019',
     descriptions: [
-      'Develop an all-in-one portal for customers using React & NodeJS',
-      'Launch iOS & Android app for a restaurant that can read NFC using React Native',
-      'Expand Smart-packaging system to different industries with NFC',
-      'Develop Windows applications to connect NFC chips with Web App database using C#',
-      'Implement on-site & remote support to production line system',
+      'I developed a customer portal using React/Node.js, launched an NFC-enabled app for a restaurant, and expanded the smart-packaging (RFID) system across industries.',
     ],
   },
 ]
@@ -230,11 +209,13 @@ export const projects: ProjectType[] = [
     name: 'Ledger System',
     description:
       'Designed and implemented a ledger system similar to a bank account from scratch, leveraging microservices and event-driven architecture to ensure scalability, reliability, and high performance under heavy load.',
+    url: 'https://www.linkedin.com/posts/simpplr_exciting-news-today-were-thrilled-to-introduce-activity-7244702900331933696-sx8d?utm_source=share&utm_medium=member_desktop',
   },
   {
-    name: 'Passkey Login Implementation',
+    name: 'Passkey/WebAuthn Login Implementation',
     description:
-      'Developed a passwordless (aka passkey) login system with Multi-Factor Authentication (MFA) to enhance security while ensuring a seamless user experience, focusing on secure data handling and integration with third-party authentication providers.',
+      'Developed a passwordless (aka passkey, WebAuthn) login system with Multi-Factor Authentication (MFA) to enhance security while ensuring a seamless user experience, focusing on secure data handling and integration with third-party authentication providers.',
+    url: 'https://webauthn.me/',
   },
   {
     name: 'YouTube Playback Speed Tracker',

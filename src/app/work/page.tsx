@@ -8,7 +8,7 @@ import { ToggleContent } from '@/components/common/ToggleContent'
 import { CommonUtil } from '@/lib/CommonUtil'
 import { TypographyH1 } from '@/components/common/TypographyH1'
 import { TypographyP } from '@/components/common/TypographyP'
-import { Button, buttonVariants } from '@/components/ui/button'
+import { buttonVariants } from '@/components/ui/button'
 import Link from 'next/link'
 
 const WorkExperience = () => {
@@ -51,9 +51,7 @@ const WorkExperience = () => {
                 </div>
 
                 {item.descriptions.map((value, index) => (
-                  <ul className="ml-4 list-disc [&>li]:mt-2" key={index}>
-                    <li>{value}</li>
-                  </ul>
+                  <TypographyP key={index}>{value}</TypographyP>
                 ))}
               </>
             </ToggleContent>

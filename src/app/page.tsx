@@ -17,6 +17,7 @@ import { compareDesc } from 'date-fns'
 import Marquee from 'react-fast-marquee'
 import { TypographyH3 } from '@/components/common/TypographyH3'
 import { TypographyP } from '@/components/common/TypographyP'
+import { motion } from 'motion/react'
 
 const Home: NextPage = () => {
   const posts = allPosts.sort((a, b) =>
@@ -55,30 +56,37 @@ const Home: NextPage = () => {
         <TypographyH1>Projects</TypographyH1>
         <div className="grid gap-4 py-4 md:grid-cols-2">
           {projects.map(({ name, description, url, github }, index) => (
-            <Card key={index}>
-              <CardHeader>
-                <CardTitle>
-                  {name}
-                  {url ? (
-                    <Link
-                      className="ml-2 inline-block cursor-pointer"
-                      onClick={() => {
-                        window.open(url, '_blank')
-                      }}
-                    />
-                  ) : null}
-                  {github ? (
-                    <GithubIcon
-                      className="ml-2 inline-block cursor-pointer"
-                      onClick={() => {
-                        window.open(github, '_blank')
-                      }}
-                    />
-                  ) : null}
-                </CardTitle>
-                <CardDescription>{description}</CardDescription>
-              </CardHeader>
-            </Card>
+            <motion.div
+              whileHover={{ scale: 1.05, rotate: 5 }}
+              whileTap={{ scale: 0.95 }}
+              key={index}
+              className="min-h-5"
+            >
+              <Card className="h-full">
+                <CardHeader>
+                  <CardTitle>
+                    {name}
+                    {url ? (
+                      <Link
+                        className="ml-2 inline-block h-5 w-5 cursor-pointer"
+                        onClick={() => {
+                          window.open(url, '_blank')
+                        }}
+                      />
+                    ) : null}
+                    {github ? (
+                      <GithubIcon
+                        className="ml-2 inline-block h-5 w-5 cursor-pointer"
+                        onClick={() => {
+                          window.open(github, '_blank')
+                        }}
+                      />
+                    ) : null}
+                  </CardTitle>
+                  <CardDescription>{description}</CardDescription>
+                </CardHeader>
+              </Card>
+            </motion.div>
           ))}
         </div>
       </div>
