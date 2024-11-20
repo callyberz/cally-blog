@@ -28,7 +28,7 @@ const Home: NextPage = () => {
     <div>
       <div className="flex flex-row items-center justify-between">
         <TypographyH1>Hi, I&apos;m Calvin Lee</TypographyH1>
-        📍 Toronto, ON
+        📍 Toronto, Canada
       </div>
 
       <Marquee speed={120} autoFill={false}>
@@ -41,7 +41,23 @@ const Home: NextPage = () => {
         </TypographyH3>
       </Marquee>
 
-      <TypographyP>{summary}</TypographyP>
+      <div className="mt-4">
+        <TypographyH3>
+          {summary.split(' ').map((text, i) => (
+            <motion.span
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{
+                duration: 0.25,
+                delay: i / 10,
+              }}
+              key={i}
+            >
+              {text}{' '}
+            </motion.span>
+          ))}
+        </TypographyH3>
+      </div>
 
       <div className="mt-10">
         <TypographyH1>Notes</TypographyH1>
