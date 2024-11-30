@@ -1,0 +1,167 @@
+---
+title: Server-side Events (SSE)?
+description: Provide a brief intro and code example to Server-side Events (SSE)
+date: 2024-11-30
+---
+
+<div>
+  In a modern day web application, we often need to update the UI based on the
+  server's state in real-time, especially for AI-related application, the UI
+  needs to be updated as soon as the AI model generates a response. The problem
+  is how to implement this? <b>WebSocket</b>? <b>Long polling</b>?{' '}
+  <b>Server-sent events (SSE)</b>?
+</div>
+
+<Image
+  alt={`chatgpt`}
+  src={`/images/chatgpt-sse.png`}
+  width={1440}
+  height={960}
+  priority
+/>
+
+> Server-Sent Events (SSE) offer a straightforward way to push real-time updates from the server to the browser, making them an excellent choice for certain use cases where one-way communication is sufficient. Let’s explore how SSE works, where it shines, and how to implement it effectively.
+
+## What Are Server-Sent Events?
+
+SSE is a protocol built on top of HTTP that allows servers to send updates to clients over a single persistent connection. It’s perfect for scenarios where the server needs to broadcast updates without requiring constant polling by the client.
+
+Unlike WebSockets, which provide full-duplex communication, SSE is inherently one-way (server-to-client). This simplicity reduces overhead and complexity, making it an attractive choice for many real-time applications.
+
+## How Does SSE Work?
+
+When using SSE, the browser initiates a connection to the server using the `EventSource` API. The server then keeps the connection open, sending updates as needed in a stream of text-based messages.
+
+Here’s a quick overview:
+
+1. The client creates an `EventSource` instance pointing to a server endpoint.
+2. The server responds with a stream of messages using a special MIME type: `text/event-stream`.
+3. The client processes these messages, updating the UI or performing other actions.
+
+## Key Features of SSE
+
+- **Automatic Reconnection**: SSE automatically reconnects if the connection is lost.
+- **Message Delivery Guarantees**: Messages include IDs to ensure clients can resume from the last received event.
+- **Custom Events**: SSE supports custom event types beyond the default `message`.
+
+## When to Use SSE
+
+SSE is ideal for:
+
+- **Live Notifications**: Broadcasting updates, such as chat messages or alerts.
+- **Real-Time Dashboards**: Keeping UI elements updated with live data.
+- **Event-Driven UIs**: Reacting to server-side events as they occur.
+
+If you need real-time updates without the complexity of WebSockets, SSE is often the better choice.
+
+## Implementation: Client Side (Typescript)
+
+Here's a simple client-side example:
+
+```typescript
+useEffect(() => {
+  const eventSource = new EventSource(EVENT_SOURCE_URL)
+  eventSource.addEventListener('open', () => setIsConnected(true))
+
+  // we can subscribe to different events here by passing different event names
+  eventSource.addEventListener('message', (event) => handleNewEvent(event.data))
+  eventSource.addEventListener('error', () => {
+    setIsConnected(false)
+    eventSource.close()
+  })
+  return () => eventSource.close()
+}, [])
+```
+
+❗ Reminder: use `addEventListener` is better because adding multiple listeners is feasible while you cannot write multiple `onmessage` handlers cuz it will override the previous one
+
+## Implementation: Server Side (NodeJS)
+
+The server sends messages in a specific format:
+
+```
+data: This is a message
+id: 123
+event: customEvent
+
+data: Another message
+```
+
+Here's an example in expressJS. I want to poll the pokeapi every 2 seconds and send the response to the client.
+
+```typescript
+app.get('/events', (req, res) => {
+  res.setHeader('Content-Type', 'text/event-stream')
+  res.setHeader('Cache-Control', 'no-cache')
+  res.setHeader('Connection', 'keep-alive')
+
+  let offset = 0
+  const intervalId = setInterval(async () => {
+    try {
+      if (offset > 5000) {
+        clearInterval(intervalId)
+        res.end()
+        return
+      }
+
+      const response = await fetch(
+        `https://pokeapi.co/api/v2/pokemon?limit=10&offset=${offset}`,
+      )
+      const data = await response.json()
+      res.write(`data: ${JSON.stringify(data)}\n\n`)
+      offset += 10
+    } catch (error) {
+      console.error(error)
+    }
+  }, 2000)
+
+  // Clean up on client disconnect
+  req.on('close', () => {
+    clearInterval(intervalId)
+    res.end()
+  })
+})
+```
+
+We can send different events to the client by writing different `data:` lines, e.g.
+
+```typescript
+// nodejs
+res.write(`event: pokemon\ndata: ${JSON.stringify(data)}\n\n`)
+// react
+eventSource.addEventListener('pokemon', (event) => handleNewEvent(event.data))
+```
+
+## Result
+
+<Image
+  alt={`Pokemon SSE`}
+  src={`/images/pokemon-sse.png`}
+  width={1440}
+  height={960}
+  priority
+/>
+
+## Comparing SSE with WebSockets
+
+| **Feature**        | **SSE**                    | **WebSockets**                                     |
+| ------------------ | -------------------------- | -------------------------------------------------- |
+| Communication Type | One-way (server-to-client) | Full-duplex                                        |
+| Complexity         | Simple                     | More complex                                       |
+| Browser Support    | Widely supported           | Supported but requires fallback for older browsers |
+| Use Case           | Notifications, live feeds  | Chat, gaming, interactive apps                     |
+
+## Limitations of SSE
+
+- **One-Way Communication**: If two-way communication is required, WebSockets are a better choice.
+- **Connection Limitations**: Browsers limit the number of simultaneous connections to a domain, which may affect scalability.
+- **HTTP/2 Challenges**: SSE works well with HTTP/1.1 but doesn't utilize HTTP/2 multiplexing effectively.
+
+## Conclusion
+
+Server-Sent Events provide a simple yet powerful way to build real-time applications. They shine in use cases where one-way updates from the server to the client are sufficient, like live notifications or dashboards. While they may not replace WebSockets for two-way communication, their ease of use and reliability make them a go-to solution for many real-time scenarios.
+
+### References
+
+- [Server-Sent Events (SSE) MDN](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events)
+- [MERN Stack Example with SSE](https://github.com/callyberz/mern-stack-example)
