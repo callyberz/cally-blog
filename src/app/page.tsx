@@ -18,11 +18,11 @@ import Marquee from 'react-fast-marquee'
 import { TypographyH3 } from '@/components/common/TypographyH3'
 import { motion } from 'motion/react'
 
-const Home: NextPage = () => {
-  // const posts = allPosts.sort((a, b) =>
-  //   compareDesc(new Date(a.date), new Date(b.date)),
-  // )
+const posts = allPosts.sort((a, b) =>
+  compareDesc(new Date(a.date), new Date(b.date)),
+)
 
+const Home: NextPage = () => {
   return (
     <div>
       <div className="flex flex-row items-center justify-between">
@@ -58,14 +58,14 @@ const Home: NextPage = () => {
         </TypographyH3>
       </div>
 
-      {/* <div className="mt-10">
+      <div className="mt-10">
         <TypographyH1>Notes</TypographyH1>
         <div className="grid grid-cols-1 gap-4 py-4 md:grid-cols-2">
           {posts.map((post, idx) => (
             <PostCard key={idx} {...post} />
           ))}
         </div>
-      </div> */}
+      </div>
 
       <div className="mt-10 border-t border-gray-200 pt-10 dark:border-gray-700">
         <TypographyH1>Projects</TypographyH1>
