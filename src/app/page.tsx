@@ -19,9 +19,9 @@ import { TypographyH3 } from '@/components/common/TypographyH3'
 import { motion } from 'motion/react'
 
 const Home: NextPage = () => {
-  const posts = allPosts.sort((a, b) =>
-    compareDesc(new Date(a.date), new Date(b.date)),
-  )
+  // const posts = allPosts.sort((a, b) =>
+  //   compareDesc(new Date(a.date), new Date(b.date)),
+  // )
 
   return (
     <div>
@@ -40,7 +40,7 @@ const Home: NextPage = () => {
         </TypographyH3>
       </Marquee>
 
-      {/* <div className="mt-4">
+      <div className="mt-4">
         <TypographyH3>
           {summary.split(' ').map((text, i) => (
             <motion.span
@@ -56,18 +56,18 @@ const Home: NextPage = () => {
             </motion.span>
           ))}
         </TypographyH3>
-      </div> */}
+      </div>
 
-      <div className="mt-10">
+      {/* <div className="mt-10">
         <TypographyH1>Notes</TypographyH1>
         <div className="grid grid-cols-1 gap-4 py-4 md:grid-cols-2">
           {posts.map((post, idx) => (
             <PostCard key={idx} {...post} />
           ))}
         </div>
-      </div>
+      </div> */}
 
-      {/* <div className="mt-10 border-t border-gray-200 pt-10 dark:border-gray-700">
+      <div className="mt-10 border-t border-gray-200 pt-10 dark:border-gray-700">
         <TypographyH1>Projects</TypographyH1>
         <div className="grid gap-4 py-4 md:grid-cols-2">
           {projects.map(({ name, description, url, github }, index) => (
@@ -104,7 +104,7 @@ const Home: NextPage = () => {
             </motion.div>
           ))}
         </div>
-      </div> */}
+      </div>
     </div>
   )
 }
