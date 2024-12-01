@@ -51,7 +51,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark" style={{ colorScheme: 'dark' }}>
-      <head>
+      <head suppressHydrationWarning>
         <script
           defer
           src="https://cloud.umami.is/script.js"
