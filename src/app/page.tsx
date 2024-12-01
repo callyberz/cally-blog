@@ -16,7 +16,6 @@ import { allPosts } from 'contentlayer/generated'
 import { compareDesc } from 'date-fns'
 import Marquee from 'react-fast-marquee'
 import { TypographyH3 } from '@/components/common/TypographyH3'
-import { TypographyP } from '@/components/common/TypographyP'
 import { motion } from 'motion/react'
 
 const Home: NextPage = () => {
@@ -41,7 +40,7 @@ const Home: NextPage = () => {
         </TypographyH3>
       </Marquee>
 
-      <div className="mt-4">
+      {/* <div className="mt-4">
         <TypographyH3>
           {summary.split(' ').map((text, i) => (
             <motion.span
@@ -57,7 +56,7 @@ const Home: NextPage = () => {
             </motion.span>
           ))}
         </TypographyH3>
-      </div>
+      </div> */}
 
       <div className="mt-10">
         <TypographyH1>Notes</TypographyH1>
