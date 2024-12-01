@@ -67,7 +67,7 @@ const Home: NextPage = () => {
         </div>
       </div>
 
-      <div className="mt-10 border-t border-gray-200 pt-10 dark:border-gray-700">
+      {/* <div className="mt-10 border-t border-gray-200 pt-10 dark:border-gray-700">
         <TypographyH1>Projects</TypographyH1>
         <div className="grid gap-4 py-4 md:grid-cols-2">
           {projects.map(({ name, description, url, github }, index) => (
@@ -104,7 +104,7 @@ const Home: NextPage = () => {
             </motion.div>
           ))}
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }
