@@ -19,16 +19,20 @@ import { TypographyH3 } from '@/components/common/TypographyH3'
 import { motion } from 'motion/react'
 
 const Home: NextPage = () => {
-  const sortedPosts = [...allPosts].sort((a, b) =>
-    compareDesc(new Date(a.date), new Date(b.date)),
-  )
-  const [latestPosts] = useState(sortedPosts)
+  const [latestPosts, setLatestPosts] = useState(allPosts)
+
+  useEffect(() => {
+    const data = [...allPosts].sort((a, b) =>
+      compareDesc(new Date(a.date), new Date(b.date)),
+    )
+    setLatestPosts(data)
+  }, [allPosts])
 
   return (
     <div>
       <div className="flex flex-row items-center justify-between">
         <TypographyH1>Hi, I&apos;m Calvin Lee</TypographyH1>
-        📍 Toronto, Canada
+        <p>📍 Toronto, Canada</p>
       </div>
 
       <Marquee speed={120} autoFill={false}>
