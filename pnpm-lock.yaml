@@ -4,110 +4,108 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-importers:
+dependencies:
+  '@radix-ui/react-accordion':
+    specifier: ^1.2.1
+    version: 1.2.1(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1)(react@18.3.1)
+  '@radix-ui/react-checkbox':
+    specifier: ^1.1.2
+    version: 1.1.2(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1)(react@18.3.1)
+  '@radix-ui/react-navigation-menu':
+    specifier: ^1.2.1
+    version: 1.2.1(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1)(react@18.3.1)
+  '@radix-ui/react-separator':
+    specifier: ^1.1.0
+    version: 1.1.0(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1)(react@18.3.1)
+  '@radix-ui/react-slot':
+    specifier: ^1.0.2
+    version: 1.1.0(@types/react@18.3.12)(react@18.3.1)
+  '@types/mdx':
+    specifier: ^2.0.13
+    version: 2.0.13
+  '@types/node':
+    specifier: 22.9.1
+    version: 22.9.1
+  '@types/react':
+    specifier: 18.3.12
+    version: 18.3.12
+  '@types/react-dom':
+    specifier: 18.3.1
+    version: 18.3.1
+  autoprefixer:
+    specifier: 10.4.20
+    version: 10.4.20(postcss@8.4.49)
+  class-variance-authority:
+    specifier: ^0.7.0
+    version: 0.7.0
+  clsx:
+    specifier: ^2.1.1
+    version: 2.1.1
+  contentlayer:
+    specifier: ^0.3.4
+    version: 0.3.4(esbuild@0.24.0)
+  date-fns:
+    specifier: ^4.1.0
+    version: 4.1.0
+  eslint:
+    specifier: 8.49.0
+    version: 8.49.0
+  eslint-config-next:
+    specifier: 15.0.3
+    version: 15.0.3(eslint@8.49.0)(typescript@5.6.3)
+  lucide-react:
+    specifier: ^0.462.0
+    version: 0.462.0(react@18.3.1)
+  motion:
+    specifier: ^11.11.17
+    version: 11.11.17(react-dom@18.3.1)(react@18.3.1)
+  next:
+    specifier: ^13.5.6
+    version: 13.5.7(@opentelemetry/api@1.9.0)(react-dom@18.3.1)(react@18.3.1)
+  next-contentlayer:
+    specifier: ^0.3.4
+    version: 0.3.4(contentlayer@0.3.4)(esbuild@0.24.0)(next@13.5.7)(react-dom@18.3.1)(react@18.3.1)
+  next-themes:
+    specifier: ^0.2.1
+    version: 0.2.1(next@13.5.7)(react-dom@18.3.1)(react@18.3.1)
+  postcss:
+    specifier: 8.4.49
+    version: 8.4.49
+  react:
+    specifier: 18.3.1
+    version: 18.3.1
+  react-dom:
+    specifier: 18.3.1
+    version: 18.3.1(react@18.3.1)
+  react-fast-marquee:
+    specifier: ^1.6.2
+    version: 1.6.5(react-dom@18.3.1)(react@18.3.1)
+  remark-gfm:
+    specifier: ^3.0.1
+    version: 3.0.1
+  tailwind-merge:
+    specifier: ^2.5.4
+    version: 2.5.4
+  tailwindcss:
+    specifier: 3.4.15
+    version: 3.4.15
+  tailwindcss-animate:
+    specifier: ^1.0.7
+    version: 1.0.7(tailwindcss@3.4.15)
+  typescript:
+    specifier: 5.6.3
+    version: 5.6.3
 
-  .:
-    dependencies:
-      '@radix-ui/react-accordion':
-        specifier: ^1.2.1
-        version: 1.2.1(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1)(react@18.3.1)
-      '@radix-ui/react-checkbox':
-        specifier: ^1.1.2
-        version: 1.1.2(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1)(react@18.3.1)
-      '@radix-ui/react-navigation-menu':
-        specifier: ^1.2.1
-        version: 1.2.1(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1)(react@18.3.1)
-      '@radix-ui/react-separator':
-        specifier: ^1.1.0
-        version: 1.1.0(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1)(react@18.3.1)
-      '@radix-ui/react-slot':
-        specifier: ^1.0.2
-        version: 1.1.0(@types/react@18.3.12)(react@18.3.1)
-      '@types/mdx':
-        specifier: ^2.0.13
-        version: 2.0.13
-      '@types/node':
-        specifier: 22.9.1
-        version: 22.9.1
-      '@types/react':
-        specifier: 18.3.12
-        version: 18.3.12
-      '@types/react-dom':
-        specifier: 18.3.1
-        version: 18.3.1
-      autoprefixer:
-        specifier: 10.4.20
-        version: 10.4.20(postcss@8.4.49)
-      class-variance-authority:
-        specifier: ^0.7.0
-        version: 0.7.0
-      clsx:
-        specifier: ^2.1.1
-        version: 2.1.1
-      contentlayer:
-        specifier: ^0.3.4
-        version: 0.3.4(esbuild@0.24.0)
-      date-fns:
-        specifier: ^4.1.0
-        version: 4.1.0
-      eslint:
-        specifier: 8.49.0
-        version: 8.49.0
-      eslint-config-next:
-        specifier: 15.0.3
-        version: 15.0.3(eslint@8.49.0)(typescript@5.6.3)
-      lucide-react:
-        specifier: ^0.460.0
-        version: 0.460.0(react@18.3.1)
-      motion:
-        specifier: ^11.11.17
-        version: 11.11.17(react-dom@18.3.1)(react@18.3.1)
-      next:
-        specifier: ^13.5.6
-        version: 13.5.7(@opentelemetry/api@1.9.0)(react-dom@18.3.1)(react@18.3.1)
-      next-contentlayer:
-        specifier: ^0.3.4
-        version: 0.3.4(contentlayer@0.3.4)(esbuild@0.24.0)(next@13.5.7)(react-dom@18.3.1)(react@18.3.1)
-      next-themes:
-        specifier: ^0.2.1
-        version: 0.2.1(next@13.5.7)(react-dom@18.3.1)(react@18.3.1)
-      postcss:
-        specifier: 8.4.49
-        version: 8.4.49
-      react:
-        specifier: 18.3.1
-        version: 18.3.1
-      react-dom:
-        specifier: 18.3.1
-        version: 18.3.1(react@18.3.1)
-      react-fast-marquee:
-        specifier: ^1.6.2
-        version: 1.6.5(react-dom@18.3.1)(react@18.3.1)
-      remark-gfm:
-        specifier: ^3.0.1
-        version: 3.0.1
-      tailwind-merge:
-        specifier: ^2.5.4
-        version: 2.5.4
-      tailwindcss:
-        specifier: 3.4.15
-        version: 3.4.15
-      tailwindcss-animate:
-        specifier: ^1.0.7
-        version: 1.0.7(tailwindcss@3.4.15)
-      typescript:
-        specifier: 5.6.3
-        version: 5.6.3
-    devDependencies:
-      '@tailwindcss/typography':
-        specifier: ^0.5.15
-        version: 0.5.15(tailwindcss@3.4.15)
-      prettier:
-        specifier: ^3.0.3
-        version: 3.3.3
-      prettier-plugin-tailwindcss:
-        specifier: ^0.6.9
-        version: 0.6.9(prettier@3.3.3)
+devDependencies:
+  '@tailwindcss/typography':
+    specifier: ^0.5.15
+    version: 0.5.15(tailwindcss@3.4.15)
+  prettier:
+    specifier: ^3.0.3
+    version: 3.3.3
+  prettier-plugin-tailwindcss:
+    specifier: ^0.6.9
+    version: 0.6.9(prettier@3.3.3)
 
 packages:
 
@@ -215,10 +213,6 @@ packages:
     peerDependencies:
       '@effect-ts/otel-node': '*'
     peerDependenciesMeta:
-      '@effect-ts/core':
-        optional: true
-      '@effect-ts/otel':
-        optional: true
       '@effect-ts/otel-node':
         optional: true
     dependencies:
@@ -3748,8 +3742,8 @@ packages:
   /lru-cache@10.4.3:
     resolution: {integrity: sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==}
 
-  /lucide-react@0.460.0(react@18.3.1):
-    resolution: {integrity: sha512-BVtq/DykVeIvRTJvRAgCsOwaGL8Un3Bxh8MbDxMhEWlZay3T4IpEKDEpwt5KZ0KJMHzgm6jrltxlT5eXOWXDHg==}
+  /lucide-react@0.462.0(react@18.3.1):
+    resolution: {integrity: sha512-NTL7EbAao9IFtuSivSZgrAh4fZd09Lr+6MTkqIxuHaH2nnYiYIzXPo06cOxHg9wKLdj6LL8TByG4qpePqwgx/g==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0-rc
     dependencies:
