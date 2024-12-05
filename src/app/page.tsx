@@ -19,14 +19,14 @@ import { TypographyH3 } from '@/components/common/TypographyH3'
 import { motion } from 'motion/react'
 
 const Home: NextPage = () => {
-  const [latestPosts, setLatestPosts] = useState(allPosts)
+  // const [latestPosts, setLatestPosts] = useState(allPosts)
 
-  useEffect(() => {
-    const data = [...allPosts].sort((a, b) =>
-      compareDesc(new Date(a.date), new Date(b.date)),
-    )
-    setLatestPosts(data)
-  }, [allPosts])
+  // useEffect(() => {
+  //   const data = [...allPosts].sort((a, b) =>
+  //     compareDesc(new Date(a.date), new Date(b.date)),
+  //   )
+  //   setLatestPosts(data)
+  // }, [allPosts])
 
   return (
     <div>
@@ -66,7 +66,7 @@ const Home: NextPage = () => {
       <div className="mt-10">
         <TypographyH1>Notes</TypographyH1>
         <div className="grid grid-cols-1 gap-4 py-4 md:grid-cols-2">
-          {latestPosts.map((post, idx) => (
+          {allPosts.map((post, idx) => (
             <PostCard key={idx} {...post} />
           ))}
         </div>
