@@ -1,5 +1,5 @@
 import { Post } from 'contentlayer/generated'
-import { format, parseISO } from 'date-fns'
+import { parseISO } from 'date-fns'
 import { formatInTimeZone } from 'date-fns-tz'
 import Link from 'next/link'
 
