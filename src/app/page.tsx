@@ -1,7 +1,7 @@
 'use client'
 
 import { type NextPage } from 'next'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { TypographyH1 } from '@/components/common/TypographyH1'
 import { highlights, projects, summary } from '@/lib/data'
 import {
@@ -16,11 +16,10 @@ import { allPosts } from 'contentlayer/generated'
 import { compareDesc } from 'date-fns'
 import Marquee from 'react-fast-marquee'
 import { TypographyH3 } from '@/components/common/TypographyH3'
-import { TypographyP } from '@/components/common/TypographyP'
 import { motion } from 'motion/react'
 
 const Home: NextPage = () => {
-  const posts = allPosts.sort((a, b) =>
+  const latestPosts = allPosts.sort((a, b) =>
     compareDesc(new Date(a.date), new Date(b.date)),
   )
 
@@ -28,7 +27,7 @@ const Home: NextPage = () => {
     <div>
       <div className="flex flex-row items-center justify-between">
         <TypographyH1>Hi, I&apos;m Calvin Lee</TypographyH1>
-        📍 Toronto, Canada
+        <p>📍 Toronto, Canada</p>
       </div>
 
       <Marquee speed={120} autoFill={false}>
@@ -62,7 +61,7 @@ const Home: NextPage = () => {
       <div className="mt-10">
         <TypographyH1>Notes</TypographyH1>
         <div className="grid grid-cols-1 gap-4 py-4 md:grid-cols-2">
-          {posts.map((post, idx) => (
+          {latestPosts.map((post, idx) => (
             <PostCard key={idx} {...post} />
           ))}
         </div>

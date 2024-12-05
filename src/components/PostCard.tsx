@@ -1,5 +1,6 @@
 import { Post } from 'contentlayer/generated'
-import { format, parseISO } from 'date-fns'
+import { parseISO } from 'date-fns'
+import { formatInTimeZone } from 'date-fns-tz'
 import Link from 'next/link'
 
 export function PostCard(post: Post) {
@@ -7,7 +8,7 @@ export function PostCard(post: Post) {
     <article className="flex flex-col items-start justify-between">
       <div className="flex items-center gap-x-4 text-xs">
         <time dateTime={post.date}>
-          {format(parseISO(post.date), 'LLLL d, yyyy')}
+          {formatInTimeZone(parseISO(post.date), 'UTC', 'LLLL d, yyyy')}
         </time>
       </div>
       <div className="group relative">
