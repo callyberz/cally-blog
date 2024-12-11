@@ -60,8 +60,8 @@ dependencies:
     specifier: ^0.468.0
     version: 0.468.0(react@18.3.1)
   motion:
-    specifier: ^11.13.1
-    version: 11.13.1(react-dom@18.3.1)(react@18.3.1)
+    specifier: ^11.13.5
+    version: 11.13.5(react-dom@18.3.1)(react@18.3.1)
   next:
     specifier: ^13.5.6
     version: 13.5.7(@opentelemetry/api@1.9.0)(react-dom@18.3.1)(react@18.3.1)
@@ -2978,12 +2978,12 @@ packages:
     resolution: {integrity: sha512-ZsDfxO51wGAXREY55a7la9LScWpwv9RxIrYABrlvOFBlH/ShPnrtsXeuUIfXKKOVicNxQ+o8JTbJvjS4M89yew==}
     dev: false
 
-  /framer-motion@11.13.1(react-dom@18.3.1)(react@18.3.1):
-    resolution: {integrity: sha512-F40tpGTHByhn9h3zdBQPcEro+pSLtzARcocbNqAyfBI+u9S+KZuHH/7O9+z+GEkoF3eqFxfvVw0eBDytohwqmQ==}
+  /framer-motion@11.13.5(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-rArI0zPU9VkpS3Wt0J7dmRxAFUWtzPWoSofNQAP0UO276CmJ+Xlf5xN19GMw3w2QsdrS2sU+0+Q2vtuz4IEZaw==}
     peerDependencies:
       '@emotion/is-prop-valid': '*'
-      react: ^18.0.0
-      react-dom: ^18.0.0
+      react: ^18.0.0 || ^19.0.0
+      react-dom: ^18.0.0 || ^19.0.0
     peerDependenciesMeta:
       '@emotion/is-prop-valid':
         optional: true
@@ -4373,8 +4373,8 @@ packages:
     resolution: {integrity: sha512-lq6TzXkH5c/ysJQBxgLXgM01qwBH1b4goTPh57VvZWJbVJZF/0SB31UWEn4EIqbVPf3au88n2rvK17SpDTja1A==}
     dev: false
 
-  /motion@11.13.1(react-dom@18.3.1)(react@18.3.1):
-    resolution: {integrity: sha512-64+QpZQv8WJJFn+tEEzX04il9s6ReA6lhKRZaxzD6SunGqoaq5g+AFVfcKWme8N83eytUOpGp7mpfJ9cyZlhAA==}
+  /motion@11.13.5(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-zmX/dz60w1ZtQB5NP9xYkLcCKwX9gc+pnHp4/mFhD9YW8wUe2ZmT8OPOtrTtq26/huxElSDu3hB7BMTSJa5iIQ==}
     peerDependencies:
       '@emotion/is-prop-valid': '*'
       react: ^18.0.0
@@ -4387,7 +4387,7 @@ packages:
       react-dom:
         optional: true
     dependencies:
-      framer-motion: 11.13.1(react-dom@18.3.1)(react@18.3.1)
+      framer-motion: 11.13.5(react-dom@18.3.1)(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       tslib: 2.8.1
