@@ -58,7 +58,7 @@ export const experiences: WorkExperience[] = [
     title: 'Software Engineer',
     location: 'Toronto, ON, Canada',
     dateStart: 'Mar 2024',
-    dateEnd: 'Current',
+    dateEnd: 'Dec 2024',
     companyUrl: 'https://www.simpplr.com/',
     descriptions: [
       'I built and designed the rewards system for Simpplr using React, TypeScript,Nodejs, PostgreSQL, Kafka, Kubernetes from scratch. It is a ledger system that users can redeem and receive points for rewards. Brought in an additional $1M ARR within six months by implementing addon features on top of the recognition system.',
