@@ -60,8 +60,8 @@ importers:
         specifier: 15.3.1
         version: 15.3.1(eslint@9.24.0(jiti@1.21.6))(typescript@5.8.3)
       lucide-react:
-        specifier: ^0.487.0
-        version: 0.487.0(react@18.3.1)
+        specifier: ^0.507.0
+        version: 0.507.0(react@18.3.1)
       motion:
         specifier: ^12.6.3
         version: 12.6.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -2301,8 +2301,8 @@ packages:
   lru-cache@10.4.3:
     resolution: {integrity: sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==}
 
-  lucide-react@0.487.0:
-    resolution: {integrity: sha512-aKqhOQ+YmFnwq8dWgGjOuLc8V1R9/c/yOd+zDY4+ohsR2Jo05lSGc3WsstYPIzcTpeosN7LoCkLReUUITvaIvw==}
+  lucide-react@0.507.0:
+    resolution: {integrity: sha512-XfgE6gvAHwAtnbUvWiTTHx4S3VGR+cUJHEc0vrh9Ogu672I1Tue2+Cp/8JJqpytgcBHAB1FVI297W4XGNwc2dQ==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
@@ -5705,7 +5705,7 @@ snapshots:
 
   lru-cache@10.4.3: {}
 
-  lucide-react@0.487.0(react@18.3.1):
+  lucide-react@0.507.0(react@18.3.1):
     dependencies:
       react: 18.3.1
 
