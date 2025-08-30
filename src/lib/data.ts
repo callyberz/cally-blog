@@ -268,5 +268,4 @@ export const highlights = [
   'NodeJS',
 ]
 
-export const summary =
-  'A software engineer with 6 years of experience loves creating web apps. I spend my days working with TypeScript, React, and Node.js, bringing ideas to life on both the frontend and backend. I’m driven by a passion for building products that people actually want to use — and having fun while doing it!'
+export const summary = 'just a dev surviving'
