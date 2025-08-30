@@ -54,6 +54,18 @@ export const education: EducationExperience[] = [
 
 export const experiences: WorkExperience[] = [
   {
+    company: 'MongoDB',
+    title: 'Software Engineer',
+    location: 'Toronto, ON, Canada',
+    dateStart: 'Feb 2025',
+    dateEnd: 'Current',
+    companyUrl: 'https://www.mongodb.com/',
+    descriptions: [
+      'Tools team',
+      'Provide productivity tools for Technical support',
+    ],
+  },
+  {
     company: 'Simpplr',
     title: 'Software Engineer',
     location: 'Toronto, ON, Canada',
