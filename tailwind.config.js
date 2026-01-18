@@ -70,6 +70,25 @@ module.exports = {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            h2: {
+              fontSize: '1.75rem',
+              fontWeight: '700',
+              marginTop: '2.5em',
+              paddingLeft: '0.75rem',
+              borderLeftWidth: '3px',
+              borderLeftColor: 'hsl(var(--primary))',
+            },
+            h3: {
+              fontSize: '1.375rem',
+              fontWeight: '600',
+              marginTop: '2em',
+            },
+          },
+        },
+      },
     },
   },
   plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')],
