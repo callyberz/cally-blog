@@ -146,18 +146,41 @@
   margin-bottom: 1.25em !important;
 }
 
-code[class*='language-'],
-pre[class*='language-'] {
-  @apply text-neutral-50;
+/* Code block styles for rehype-pretty-code */
+pre {
+  @apply overflow-x-auto rounded-lg py-4;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 pre::-webkit-scrollbar {
   display: none;
 }
 
-pre {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+pre > code {
+  @apply grid;
+}
+
+pre code [data-line] {
+  @apply border-l-2 border-transparent px-4;
+}
+
+pre code [data-highlighted-line] {
+  @apply border-l-2 border-blue-500 bg-blue-500/10;
+}
+
+code {
+  @apply text-sm;
+}
+
+/* Inline code */
+:not(pre) > code {
+  @apply rounded bg-neutral-800 px-1.5 py-0.5 text-neutral-200;
+}
+
+/* Light mode inline code */
+:root:not(.dark) :not(pre) > code {
+  @apply bg-neutral-200 text-neutral-800;
 }
 
 /* Remove Safari input shadow on mobile */
