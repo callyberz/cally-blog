@@ -57,6 +57,8 @@ export function TableOfContents({ headings }: TableOfContentsProps) {
   const [activeSlug, setActiveSlug] = useState('')
 
   useEffect(() => {
+    if (!headings || headings.length === 0) return
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -76,7 +78,7 @@ export function TableOfContents({ headings }: TableOfContentsProps) {
     return () => observer.disconnect()
   }, [headings])
 
-  if (headings.length === 0) return null
+  if (!headings || headings.length === 0) return null
 
   return (
     <>
