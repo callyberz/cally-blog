@@ -2,6 +2,8 @@
 
 import { useEffect, useMemo, useState } from 'react'
 import { Command } from 'cmdk'
+import * as Dialog from '@radix-ui/react-dialog'
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden'
 import Fuse from 'fuse.js'
 import { useRouter } from 'next/navigation'
 import { posts } from '#site/posts'
@@ -68,6 +70,9 @@ export function SearchDialog() {
           onClick={() => setOpen(false)}
         />
         <div className="fixed left-1/2 top-1/4 w-full max-w-lg -translate-x-1/2 rounded-lg border border-neutral-700 bg-neutral-900 shadow-2xl">
+          <VisuallyHidden>
+            <Dialog.Title>Search posts</Dialog.Title>
+          </VisuallyHidden>
           <Command.Input
             value={query}
             onValueChange={setQuery}
