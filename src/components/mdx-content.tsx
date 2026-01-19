@@ -25,7 +25,7 @@ export function MDXContent({ source }: MDXContentProps) {
       components={components}
       options={{
         mdxOptions: {
-          format: 'md',
+          format: 'mdx',
           remarkPlugins: [remarkGfm],
           rehypePlugins: [
             [
