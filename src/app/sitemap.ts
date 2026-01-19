@@ -1,8 +1,8 @@
 import { WEBSITE_HOST_URL } from '@/lib/constants'
-import { allPosts } from 'contentlayer/generated'
+import { posts } from '#site/posts'
 
 export default async function sitemap() {
-  const posts = allPosts.map((post) => ({
+  const postRoutes = posts.map((post) => ({
     url: `${WEBSITE_HOST_URL}${post.url}`,
     lastModified: post.date,
   }))
@@ -12,5 +12,5 @@ export default async function sitemap() {
     lastModified: new Date().toISOString().split('T')[0],
   }))
 
-  return [...routes, ...posts]
+  return [...routes, ...postRoutes]
 }

@@ -1,27 +1,25 @@
 import { WEBSITE_HOST_URL } from '@/lib/constants'
-import { allPosts } from 'contentlayer/generated'
+import { posts } from '#site/posts'
 import { format, parseISO } from 'date-fns'
-import type { MDXComponents } from 'mdx/types'
 import type { Metadata } from 'next'
-import { useMDXComponent } from 'next-contentlayer/hooks'
-import NextImage from 'next/image'
-import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ReadingProgressBar } from '@/components/ReadingProgressBar'
 import { TableOfContents } from '@/components/TableOfContents'
+import { MDXContent } from '@/components/mdx-content'
 
 export async function generateStaticParams() {
-  return allPosts.map((post) => ({
-    slug: post._raw.flattenedPath,
+  return posts.map((post) => ({
+    slug: post.slug,
   }))
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }): Promise<Metadata | undefined> {
-  const post = allPosts.find((post) => post._raw.flattenedPath === params.slug)
+  const { slug } = await params
+  const post = posts.find((post) => post.slug === slug)
 
   if (!post) {
     return
@@ -37,31 +35,30 @@ export async function generateMetadata({
       description,
       type: 'article',
       publishedTime: date,
-      url: `${WEBSITE_HOST_URL}/posts/${url}`,
+      url: `${WEBSITE_HOST_URL}${url}`,
     },
     twitter: {
       title,
       description,
     },
     alternates: {
-      canonical: `${WEBSITE_HOST_URL}/posts/${url}`,
+      canonical: `${WEBSITE_HOST_URL}${url}`,
     },
   }
 }
 
-const mdxComponents: MDXComponents = {
-  a: ({ href, children }) => <Link href={href as string}>{children}</Link>,
-  Image: (props) => <NextImage className="rounded-lg" {...props} />,
-}
-
-const PostLayout = ({ params }: { params: { slug: string } }) => {
-  const post = allPosts.find((post) => post._raw.flattenedPath === params.slug)
+const PostLayout = async ({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}) => {
+  const { slug } = await params
+  const post = posts.find((post) => post.slug === slug)
 
   if (!post) {
     notFound()
   }
 
-  const MDXContent = useMDXComponent(post.body.code)
   const headings = post.headings as { level: number; text: string; slug: string }[]
 
   return (
@@ -84,7 +81,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
           </div>
 
           <article className="prose dark:prose-invert">
-            <MDXContent components={mdxComponents} />
+            <MDXContent source={post.raw} />
           </article>
         </div>
 

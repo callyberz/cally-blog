@@ -1,6 +1,6 @@
-const { withContentlayer } = require('next-contentlayer')
-
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  turbopack: {},
+}
 
-module.exports = (withContentlayer(nextConfig))
+module.exports = nextConfig

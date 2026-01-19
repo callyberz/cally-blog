@@ -1,7 +1,13 @@
-import { Post } from 'contentlayer/generated'
 import { parseISO } from 'date-fns'
 import { formatInTimeZone } from 'date-fns-tz'
 import Link from 'next/link'
+
+interface Post {
+  title: string
+  description: string
+  date: string
+  url: string
+}
 
 export function PostCard(post: Post) {
   return (
