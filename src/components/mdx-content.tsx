@@ -2,6 +2,7 @@ import { MDXRemote } from 'next-mdx-remote/rsc'
 import NextImage from 'next/image'
 import Link from 'next/link'
 import remarkGfm from 'remark-gfm'
+import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
 
 const components = {
@@ -26,7 +27,16 @@ export function MDXContent({ source }: MDXContentProps) {
         mdxOptions: {
           format: 'md',
           remarkPlugins: [remarkGfm],
-          rehypePlugins: [rehypeSlug],
+          rehypePlugins: [
+            [
+              rehypePrettyCode,
+              {
+                theme: 'github-dark',
+                keepBackground: true,
+              },
+            ],
+            rehypeSlug,
+          ],
         },
       }}
     />
