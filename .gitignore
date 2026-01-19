@@ -37,5 +37,8 @@ next-env.d.ts
 # contentlayer
 .contentlayer
 
+# velite
+.velite
+
 # worktrees
 .worktrees

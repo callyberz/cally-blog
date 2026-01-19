@@ -46,22 +46,22 @@ export function Navigation() {
     <NavigationMenu className="flex items-center justify-between p-4">
       <NavigationMenuList className="flex space-x-4">
         <NavigationMenuItem>
-          <Link href="/" as="/" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+            <Link href="/">
               <HomeIcon className="md:mr-2 md:inline" />
               <span className="hidden md:inline">Home</span>
-            </NavigationMenuLink>
-          </Link>
+            </Link>
+          </NavigationMenuLink>
         </NavigationMenuItem>
 
         {Routes.map((route, index) => (
           <NavigationMenuItem key={index}>
-            <Link href={route.linkTo} legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+            <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+              <Link href={route.linkTo}>
                 {route.icon}
                 <span className="hidden md:inline">{route.text}</span>
-              </NavigationMenuLink>
-            </Link>
+              </Link>
+            </NavigationMenuLink>
           </NavigationMenuItem>
         ))}
       </NavigationMenuList>

@@ -12,14 +12,14 @@ import {
 } from '@/components/ui/card'
 import { GithubIcon, Link } from 'lucide-react'
 import { PostCard } from '@/components/PostCard'
-import { allPosts } from 'contentlayer/generated'
+import { posts } from '#site/posts'
 import { compareDesc } from 'date-fns'
 import Marquee from 'react-fast-marquee'
 import { TypographyH3 } from '@/components/common/TypographyH3'
 import { motion } from 'motion/react'
 
 const Home: NextPage = () => {
-  const latestPosts = allPosts.sort((a, b) =>
+  const latestPosts = [...posts].sort((a, b) =>
     compareDesc(new Date(a.date), new Date(b.date)),
   )
 
