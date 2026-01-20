@@ -16,6 +16,7 @@ import {
   School,
   UserCircle2,
 } from 'lucide-react'
+import { SearchDialog } from './SearchDialog'
 
 interface RouteProps {
   text: string
@@ -43,28 +44,32 @@ const Routes: RouteProps[] = [
 
 export function Navigation() {
   return (
-    <NavigationMenu className="flex items-center justify-between p-4">
-      <NavigationMenuList className="flex space-x-4">
-        <NavigationMenuItem>
-          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/">
-              <HomeIcon className="md:mr-2 md:inline" />
-              <span className="hidden md:inline">Home</span>
-            </Link>
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-
-        {Routes.map((route, index) => (
-          <NavigationMenuItem key={index}>
+    <div className="flex items-center justify-between p-4">
+      <NavigationMenu>
+        <NavigationMenuList className="flex space-x-4">
+          <NavigationMenuItem>
             <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-              <Link href={route.linkTo}>
-                {route.icon}
-                <span className="hidden md:inline">{route.text}</span>
+              <Link href="/">
+                <HomeIcon className="md:mr-2 md:inline" />
+                <span className="hidden md:inline">Home</span>
               </Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
-        ))}
-      </NavigationMenuList>
-    </NavigationMenu>
+
+          {Routes.map((route, index) => (
+            <NavigationMenuItem key={index}>
+              <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                <Link href={route.linkTo}>
+                  {route.icon}
+                  <span className="hidden md:inline">{route.text}</span>
+                </Link>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+          ))}
+        </NavigationMenuList>
+      </NavigationMenu>
+
+      <SearchDialog />
+    </div>
   )
 }

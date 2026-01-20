@@ -4,98 +4,88 @@ description: Digging back into the loops in JavaScript
 date: 2024-01-08
 ---
 
-<a href="#wtfisths"><h2>WTF is `this`</h2></a>
-<div>
-    <h3>Scope</h3>
-    <div>Scope is the current context of execution</div>
-    
-    <ul>
-    <li>Global scope</li>
-    <div>
-        <span>Global scope is the outermost scope. Variables declared in the global scope are accessible everywhere</span>
-        ```tsx
-        const foo = 'bar';
-        function bar() {
-            console.log(foo);
-        }
-        bar(); // bar
-        ```
-    </div>
-    
-    <li>Function scope</li>
-    <div>
-        <span>Scoped to use the variables declared inside the function</span>
-        ```tsx
-        function bar() {
-            const foo = 'bar1';
-            console.log(foo);
-        }
-        const foo = 'bar2';
-        bar(); // bar1
-        // throw `foo is not accessible here`
-        ```
-    </div>
+## WTF is `this`
 
-    <li>Block scope</li>
-    <div>
-        <span>Scoped to use the variables declared inside `{}` can be called </span>
-        ```tsx
-        {
-            const foo = 'bar1';
-            console.log(foo); // bar1
-        }
-        console.log(foo); // throw `foo is not accessible here`
-        ```
-    </div>
-    </ul>
+### Scope
 
-<h3>After understanding the scope, let's dive into Lexical Scope</h3>
-<div>Lexical scope is the scope of the function defined at the time of declaration (Static Scope)</div>
-<div>In other words, when the program is complied, it already defined the scope. But when it comes to use case of dynamic scoping, the value is determined by the function that called the current function.</div>
-<div>
-    <li>Example: `bar()` and `baz()` share the same lexical scope (global)</li>
-    ```tsx
-    const foo = 'bar';
-    function bar() {
-        console.log(foo);
-    }
-    function baz() {
-        const foo = 'baz';
-        bar();
-    }
-    baz(); // bar
-    ```
-    </div>
-</div>
+Scope is the current context of execution
 
-<h3>`this`</h3>
-  When a function is invoked, an <b>execution context</b> is created. This
-  context has a property called `this` which refers to the object that called
-  the function.
-<ol>
-  <li>
-    When a function is invoked in the global scope, `this` refers to the global
-    object
-  </li>
-  <li>When a function is invoked in strict mode, `this` is undefined</li>
-  <li>
-    When a function is invoked in the method, `this` refers to the object that
-    called the function
-  </li>
-  <li>
-    When a function is invoked with `new` keyword, `this` refers to the newly
-    created object
-  </li>
-  <li>
-    When a function is invoked with `call`, `apply`, `bind`, `this` refers to
-    the object passed in
-  </li>
-</ol>
+**Global scope**
 
-<div>Global context</div>- Function defined in global scope is called in global context
+Global scope is the outermost scope. Variables declared in the global scope are accessible everywhere
 
-<div>Object context</div>
-- Inside object this refers to the object itself 
+```tsx
+const foo = 'bar';
+function bar() {
+    console.log(foo);
+}
+bar(); // bar
+```
+
+**Function scope**
+
+Scoped to use the variables declared inside the function
+
+```tsx
+function bar() {
+    const foo = 'bar1';
+    console.log(foo);
+}
+const foo = 'bar2';
+bar(); // bar1
+// throw `foo is not accessible here`
+```
+
+**Block scope**
+
+Scoped to use the variables declared inside `{}` can be called
+
+```tsx
+{
+    const foo = 'bar1';
+    console.log(foo); // bar1
+}
+console.log(foo); // throw `foo is not accessible here`
+```
+
+### Lexical Scope
+
+Lexical scope is the scope of the function defined at the time of declaration (Static Scope).
+
+In other words, when the program is compiled, it already defined the scope. But when it comes to use case of dynamic scoping, the value is determined by the function that called the current function.
+
+Example: `bar()` and `baz()` share the same lexical scope (global)
+
+```tsx
+const foo = 'bar';
+function bar() {
+    console.log(foo);
+}
+function baz() {
+    const foo = 'baz';
+    bar();
+}
+baz(); // bar
+```
+
+### `this`
+
+When a function is invoked, an **execution context** is created. This context has a property called `this` which refers to the object that called the function.
+
+1. When a function is invoked in the global scope, `this` refers to the global object
+2. When a function is invoked in strict mode, `this` is undefined
+3. When a function is invoked in the method, `this` refers to the object that called the function
+4. When a function is invoked with `new` keyword, `this` refers to the newly created object
+5. When a function is invoked with `call`, `apply`, `bind`, `this` refers to the object passed in
+
+**Global context**
+
+Function defined in global scope is called in global context
+
+**Object context**
+
+Inside object this refers to the object itself
+
 ```tsx
 const obj = {
   name: "Example",
@@ -109,15 +99,16 @@ const obj = {
 
 obj.regularFunc(); // Outputs: "Example"
 obj.arrowFunc(); // Outputs: undefined (or whatever is in the global context)
+```
 
-````
+### Arrow function
 
-<h3>Arrow function</h3>
-<div>Arrow function does not have `this` context</div>
-<div>It directly inherits from lexical context (the context where it is defined). It is not possible to bind `this` to arrow function. Because of this, arrow function is not suitable for method definition</div>
+Arrow function does not have `this` context.
+
+It directly inherits from lexical context (the context where it is defined). It is not possible to bind `this` to arrow function. Because of this, arrow function is not suitable for method definition.
 
 ```tsx
-// bug occrus as it is not possible to bind `this` to arrow function
+// bug occurs as it is not possible to bind `this` to arrow function
 // then it inherits from lexical context
 // which is the global context
 // so `this.name` is undefined
@@ -128,9 +119,10 @@ const foo = {
         return;
     }
 }
-````
+```
 
-<div>Suggested use cases of arrow function are: callback function, event handlers.</div>
+Suggested use cases of arrow function are: callback function, event handlers.
+
 ```tsx
 const foo = {
     name: 'bar',
@@ -142,9 +134,9 @@ const foo = {
 }
 ```
 
-<div>
-<h3>Prototype/__proto__</h3>
-In JavaScript, every object/function (using `new`) has a prototype. The prototype is also an object. All objects inherit their properties and methods from their prototype. The idea of prototype is to to share properties/methods between objects when defining similar objects.
+### Prototype/\_\_proto\_\_
+
+In JavaScript, every object/function (using `new`) has a prototype. The prototype is also an object. All objects inherit their properties and methods from their prototype. The idea of prototype is to share properties/methods between objects when defining similar objects.
 
 <div style={{backgroundColor: '#515761', padding: '1rem', borderRadius: 8}}>
 Here is a catch: for function without `new` keyword, the prototype is `undefined`. For function using `new` keyword to create an object, the prototype is the object that is created by the function.
@@ -160,17 +152,19 @@ const foo = Person(); // no prototype
 const foo2 = new Person(); // has prototype
 ```
 
-<div> WTH does `new` keyword do? </div>
-<li>Create an object</li>
-<li>Set the prototype of the object (i.e. `__proto__`) to the prototype of the function, making prototype chaining</li>
-<li>Execute the function with `this` pointing to the newly created object</li>
-<li>Return the newly created object</li>
+**What does `new` keyword do?**
 
-<div>
-<h3>Prototype chaining</h3>
-JavaScript uses prototype chaining to find the properties and methods of an object by traversing the prototype chain until undefined is found, which is the end of the prototype chain.  
+- Create an object
+- Set the prototype of the object (i.e. `__proto__`) to the prototype of the function, making prototype chaining
+- Execute the function with `this` pointing to the newly created object
+- Return the newly created object
+
+### Prototype chaining
+
+JavaScript uses prototype chaining to find the properties and methods of an object by traversing the prototype chain until undefined is found, which is the end of the prototype chain.
+
 Example: `String.prototype`, `Array.prototype`, `Object.prototype`, `Function.prototype`, `Number.prototype`, `Boolean.prototype`, `Date.prototype`, `RegExp.prototype`, `Error.prototype`, `Symbol.prototype`, `Promise.prototype`, `Map.prototype`, `Set.prototype`, `WeakMap.prototype`, `WeakSet.prototype`, `ArrayBuffer.prototype`, `SharedArrayBuffer.prototype`, `Atomics.prototype`, `DataView.prototype`, `JSON.prototype`, `Math.prototype`, `Reflect.prototype`
-</div>
+
 ```tsx
 const name : string = 'John';
 console.log(name.toUpperCase()); // `name` is a string but does not have toUpperCase method
@@ -185,9 +179,12 @@ console.log(obj.hasOwnProperty('name')); // `obj` is an object but does not have
 // find the method in the prototype chain (Object.prototype)
 ```
 
-<h3>`__proto__`</h3>
-<div>Only object has `__proto__`. It is a property of an object that points to the prototype of the object</div>
-<div>The object is inheriting the prototpye as defined in fucntion/class and saving it in `__proto__`</div>
+### \_\_proto\_\_
+
+Only object has `__proto__`. It is a property of an object that points to the prototype of the object.
+
+The object is inheriting the prototype as defined in function/class and saving it in `__proto__`.
+
 ```tsx
 function Person(name) {
     this.name = name;
@@ -203,13 +200,15 @@ console.log(person1.greet()); // "Hello, my name is Alice"
 console.log(person1.__proto__ === Person.prototype); // true
 console.log(Person.prototype.constructor === Person); // true
 ```
-</div>
 
-<div>
-<h3>Generator</h3>
-<div>Generator is a function that can be paused and resumed, using `function*`/`function *foo()` syntax.</div>
-<div>Generator function returns an iterator object, which has a `next()` method that returns an object with two properties: `value` and `done`.</div>
-<div>When the generator function is called, the code inside the function is not executed. Instead, it returns an iterator object.</div>
+### Generator
+
+Generator is a function that can be paused and resumed, using `function*`/`function *foo()` syntax.
+
+Generator function returns an iterator object, which has a `next()` method that returns an object with two properties: `value` and `done`.
+
+When the generator function is called, the code inside the function is not executed. Instead, it returns an iterator object.
+
 ```tsx
 function* foo() {
     yield 1;
@@ -217,4 +216,3 @@ function* foo() {
     yield 3;
 }
 ```
-</div>
